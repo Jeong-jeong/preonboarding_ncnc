@@ -26,7 +26,7 @@ const globalStyle = createGlobalStyle`
 	}
 	html, body {
 		color: ${theme.colors.primary};
-		background-color: #fff;
+		background-color: ${theme.colors.white};
 		font-family: 'Apple SD Gothic Neo',system-ui, Dotum,'돋움', Helvetica, sans-serif; 
 	}
 	a {
