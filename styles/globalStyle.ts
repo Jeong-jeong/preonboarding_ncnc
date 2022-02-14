@@ -39,7 +39,7 @@ const globalStyle = createGlobalStyle`
 		background: transparent;
 		border: none;
 		cursor: pointer;
-	}	
+	}
 `;
 
 export default globalStyle;
