@@ -26,7 +26,7 @@ const globalStyle = createGlobalStyle`
 	}
 	html, body {
 		color: ${theme.colors.primary};
-		background-color: ${theme.colors.white};
+		background-color: ${theme.colors.background};
 		font-family: 'Apple SD Gothic Neo',system-ui, Dotum,'돋움', Helvetica, sans-serif; 
 	}
 	a {
@@ -47,6 +47,10 @@ const globalStyle = createGlobalStyle`
 		border: none;
 		cursor: pointer;
 	}	
+	p {
+		margin-block-start: 1em;
+    margin-block-end: 1em;
+	}
 `;
 
 export default globalStyle;
