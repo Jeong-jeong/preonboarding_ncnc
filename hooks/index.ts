@@ -1,1 +1,1 @@
-// hook 생성
+export { default as useClickedId } from './useClickedId';
