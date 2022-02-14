@@ -1,1 +1,1 @@
-// 컴포넌트 export default as
+export { default as CategoryList } from './CategoryList/CategoryList';
