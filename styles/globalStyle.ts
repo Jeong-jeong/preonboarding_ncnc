@@ -19,13 +19,8 @@ const globalStyle = createGlobalStyle`
 	}
 	html, body {
 		color: ${theme.colors.primary};
-<<<<<<< Updated upstream
-		background-color: ${theme.colors.white};
-		font-family: 'Apple SD Gothic Neo',system-ui, Dotum,'돋움', Helvetica, sans-serif; 
-=======
 		background-color: ${theme.colors.background};
 		font-family: -apple-system, 'Apple SD Gothic Neo', Dotum,'돋움', sans-serif; 
->>>>>>> Stashed changes
 	}
 	a {
 		color: inherit;
