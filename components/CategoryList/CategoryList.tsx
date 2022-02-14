@@ -16,12 +16,10 @@ interface CategoryListProps {
 
 const CategoryList = ({ data, size }: CategoryListProps) => {
   return (
-    <S.SampleBg>
-      <S.CategoryContainer>
-        {data &&
-          React.Children.toArray(data.map((data) => <Category data={data} size={size}></Category>))}
-      </S.CategoryContainer>
-    </S.SampleBg>
+    <S.CategoryContainer>
+      {data &&
+        React.Children.toArray(data.map((data) => <Category data={data} size={size}></Category>))}
+    </S.CategoryContainer>
   );
 };
 
