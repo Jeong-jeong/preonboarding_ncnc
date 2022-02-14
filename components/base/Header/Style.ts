@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { flexbox } from 'styles/commonStyle';
 import { font15 } from 'styles/font';
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.header`
   position: fixed;
   left: 0;
   top: 0;
@@ -65,7 +65,7 @@ export const HeaderMenu = styled.ul`
   background: ${({ theme }) => theme.colors.white};
 `;
 
-export const MenuWrapper = styled.div`
+export const MenuWrapper = styled.header`
   position: fixed;
   left: 0;
   top: 0;
