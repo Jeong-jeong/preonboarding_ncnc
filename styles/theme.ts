@@ -11,10 +11,12 @@ const colors = {
 
 const size = {
   baseHeight: 50,
+  borderRadiuss: 5,
 };
 
 const gap = {
-  base: 17,
+  baseGap: 10,
+  baseInner: 17,
 };
 
 const theme = {
