@@ -3,7 +3,7 @@ import { theme } from 'styles';
 import { font16 } from 'styles/font';
 
 interface IBtn {
-  red: boolean;
+  checkValue: boolean;
 }
 
 export const Button = styled.button<IBtn>`
@@ -12,5 +12,6 @@ export const Button = styled.button<IBtn>`
   height: 80px;
   ${font16(500)};
   color: ${({ theme }) => theme.colors.white};
-  background: ${({ red }) => (red ? ({ theme }) => theme.colors.red : theme.colors.disableGray)};
+  background: ${({ checkValue }) =>
+    checkValue ? ({ theme }) => theme.colors.red : theme.colors.disableGray};
 `;

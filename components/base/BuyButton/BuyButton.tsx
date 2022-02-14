@@ -1,15 +1,24 @@
+import { useEffect, useState } from 'react';
 import { ReactElement } from 'react';
 import * as S from './Style';
 
 interface Props {
   children: string;
-  red: boolean;
+  checkValue: boolean;
 }
 
-const BuyButton = ({ children, red = true }: Props): ReactElement => {
+const BuyButton = ({ children, checkValue = true }: Props): ReactElement => {
+  const [check, setCheck] = useState(false);
+
+  useEffect(() => {
+    setCheck(checkValue);
+  }, [checkValue]);
+
   return (
     <>
-      <S.Button red={red}>{children}</S.Button>
+      <S.Button checkValue={checkValue} disabled={!check}>
+        {children}
+      </S.Button>
     </>
   );
 };
