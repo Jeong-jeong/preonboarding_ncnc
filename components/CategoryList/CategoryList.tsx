@@ -1,35 +1,25 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import * as S from './Style';
+import { Category } from '/components';
 
 interface mokType {
-  imageUrl: string;
+  id: number;
   name: string;
+  discountRate: number;
+  imageUrl: string;
 }
 
-interface CategoryProps {
+interface CategoryListProps {
   data: mokType[];
   size: 43 | 36;
 }
 
-const CategoryList = ({ data, size }: CategoryProps) => {
-  const clickHandler = (e: MouseEvent<HTMLDivElement>) => {
-    console.log('click');
-  };
-
+const CategoryList = ({ data, size }: CategoryListProps) => {
   return (
     <S.SampleBg>
       <S.CategoryContainer>
         {data &&
-          React.Children.toArray(
-            data.map((data) => (
-              <S.Category size={size} onClick={clickHandler}>
-                <S.Img size={size}>
-                  <img src={data.imageUrl} alt={data.name} />
-                </S.Img>
-                <S.Name size={size}>{data.name}</S.Name>
-              </S.Category>
-            )),
-          )}
+          React.Children.toArray(data.map((data) => <Category data={data} size={size}></Category>))}
       </S.CategoryContainer>
     </S.SampleBg>
   );
