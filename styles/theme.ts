@@ -1,13 +1,12 @@
 const colors = {
-  primary: '#323D45',
-  gray: '#939FA5',
-  blue: '#1565C0',
-  skyBlue: '#2196F3',
-  lightBlue: '#BBDEFB',
-  warning: '#FFA000',
-  border: '#E5E5E5',
-  white: '#FFF',
-  darkGray: '#323D45',
+  primary: '#000',
+  modalBackground:'rgba(0, 0, 0, 0.4)',
+  gray: '#808080',
+  borderBottom: '#C4C4C4',
+  disableGray: '#CCCCCC',
+  background: '#F1F3F4',
+  white: '#fff',
+  red: '#FF5757',
 };
 
 const size = {
