@@ -8,14 +8,7 @@ const globalStyle = createGlobalStyle`
 		font-style: normal;
 		font-weight: 400;
 		src: local('AppleSDGothicNeoM00'),
-			url('../public/fonts/AppleSDGothicNeo/AppleSDGothicNeoM.ttf')
-				format('truetype'),
-			url('../public/fonts/AppleSDGothicNeo/AppleSDGothicNeoM.eot')
-				format('embedded-opentype'),
-			url('../public/fonts/AppleSDGothicNeo/AppleSDGothicNeoM.woff2')
-				format('woff2'),
-			url('../public/fonts/AppleSDGothicNeo/AppleSDGothicNeoM.woff')
-				format('woff'),
+			url('../fonts/AppleSDGothicNeo/AppleSDGothicNeoM.ttf') format('truetype');
 		unicode-range: U+AC00- U+D7A3, U+0030-0039;
 	}
 
@@ -26,8 +19,8 @@ const globalStyle = createGlobalStyle`
 	}
 	html, body {
 		color: ${theme.colors.primary};
-		background-color: ${theme.colors.white};
-		font-family: 'Apple SD Gothic Neo',system-ui, Dotum,'돋움', Helvetica, sans-serif; 
+		background-color: ${theme.colors.background};
+		font-family: -apple-system, 'Apple SD Gothic Neo', Dotum,'돋움', sans-serif; 
 	}
 	a {
 		color: inherit;
