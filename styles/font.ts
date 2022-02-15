@@ -8,6 +8,12 @@ export const font12 = (weight: Weight) => css`
   font-weight: ${weight};
 `;
 
+export const font13 = (weight: Weight) => css`
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: ${weight};
+`;
+
 export const font14 = (weight: Weight) => css`
   font-size: 14px;
   line-height: 1.2;
