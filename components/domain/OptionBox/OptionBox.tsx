@@ -1,10 +1,10 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 import * as S from './Style';
 import { Option, CheckedOption } from 'components/base';
-import { IOption } from 'types';
+import { Options } from 'types/ConItem';
 
 interface OptionBoxProps {
-  options: IOption[];
+  options: Options[];
   warning: string;
   originalPrice: number;
   toggle: () => void;
