@@ -4,11 +4,13 @@ import { font15 } from 'styles/font';
 
 export const HeaderWrapper = styled.header`
   position: fixed;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
+  max-width: ${({ theme }) => `${theme.size.maxWidth}px`};
   width: 100%;
+  margin: 0 auto;
   height: 50px;
-  z-index: 3;
   background: ${({ theme }) => theme.colors.white};
 `;
 
@@ -32,7 +34,7 @@ export const Hidden = styled.div`
 export const HamburgerContainer = styled.div``;
 
 export const MyPageWrapper = styled.div`
-  z-index: 6;
+  z-index: 1000;
   position: absolute;
   top: 0;
   left: 0;
@@ -51,6 +53,7 @@ export const MyPageWrapper = styled.div`
 export const Image = styled.div``;
 
 export const HeaderMenu = styled.ul<{ windowWidth: number }>`
+  z-index: 1000;
   ${flexbox({})};
   img {
     display: none;
