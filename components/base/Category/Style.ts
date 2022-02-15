@@ -6,15 +6,16 @@ export interface SizeProps {
   size: number;
 }
 
-export const Category = styled.a<SizeProps>`
+export const Category = styled.a`
   float: left;
   width: calc(100% / 3);
-  height: 112px;
+  min-width: 112px;
   padding: 1px;
 `;
 
-export const CategoryInner = styled.div`
-  height: 100%;
+export const CategoryInner = styled.div<SizeProps>`
+  padding: ${({ size, theme }) =>
+    size === 43 ? '11px 0 14px' : `${theme.gap.baseInner}px 0 13px`};
   background: ${({ theme }) => `${theme.colors.white}`};
   border-radius: ${({ theme }) => `${theme.size.borderRadius}px`};
   cursor: pointer;
@@ -22,8 +23,7 @@ export const CategoryInner = styled.div`
 
 export const ContentsWrapper = styled.div`
   height: 100%;
-  ${flexbox({ fd: 'column' })};
-  justify-content: space-evenly;
+  ${flexbox({ fd: 'column', jc: 'between' })};
   transition: 0.6s ease;
 
   &:hover {
@@ -39,7 +39,6 @@ export const ImgWrap = styled.div<SizeProps>`
     width: 100%;
     height: 100%;
     object-fit: contain;
-		event
   }
 `;
 
