@@ -45,13 +45,12 @@ export const MyPageWrapper = styled.div`
     height: 100%;
   }
   &:not(.hidden) ul {
-    width: 100%;
     transform: none;
   }
 `;
 export const Image = styled.div``;
 
-export const HeaderMenu = styled.ul`
+export const HeaderMenu = styled.ul<{ windowWidth: number }>`
   ${flexbox({})};
   img {
     display: none;
@@ -59,10 +58,10 @@ export const HeaderMenu = styled.ul`
   ${flexbox({ fd: 'column', jc: 'start', ai: 'start' })};
   position: absolute;
   transition: 0.45s;
-  transform: translateX(-280px);
-  width: 280px;
+  transform: ${({ windowWidth }) => `translateX(-${windowWidth}px)`};
+  width: ${({ windowWidth }) => `${windowWidth}px`};
   height: 100vh;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 export const MenuWrapper = styled.header`
@@ -73,4 +72,27 @@ export const MenuWrapper = styled.header`
   height: 50px;
   z-index: 3;
   background: ${({ theme }) => theme.colors.white};
+`;
+
+export const IcoArrowWrapper = styled.span`
+  .ico-arrow {
+    transform: rotate(90deg);
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  ${flexbox({ jc: 'between' })};
+  padding: 16px ${({ theme }) => `${theme.gap.baseInner}px`};
+  margin: ${({ theme }) => `${theme.gap.baseGap}px`} 0;
+  background: ${({ theme }) => theme.colors.white};
+  margin-top: 60px;
+`;
+
+export const ContentText = styled.span`
+  ${font15(500)}
+`;
+
+export const BlankBox = styled.div`
+  height: 100vh;
+  background-color: ${({ theme }) => theme.colors.white};
 `;

@@ -17,7 +17,7 @@ const useClickedId = () => {
     }
   };
 
-  return { clickedId, handleClickedId };
+  return { clickedId, setClickedId, handleClickedId };
 };
 
 export default useClickedId;

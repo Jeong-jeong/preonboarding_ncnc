@@ -1,10 +1,10 @@
 import * as S from './Style';
 import { ProductionItem } from '../index';
 import React from 'react';
-import { IConItem } from 'types';
+import { IConItem, ISoonItem } from 'types';
 
 interface ProductionListProps {
-  conItems: IConItem[];
+  conItems: IConItem[] | ISoonItem[];
 }
 
 const ProductionList = ({ conItems }: ProductionListProps) => {
@@ -18,7 +18,7 @@ const ProductionList = ({ conItems }: ProductionListProps) => {
             originalPrice={originalPrice}
             minSellingPrice={minSellingPrice}
             imageUrl={imageUrl}
-            brandName={conCategory2?.name}
+            brandName={conCategory2.name}
           />
         )),
       )}

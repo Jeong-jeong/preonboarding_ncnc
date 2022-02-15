@@ -8,6 +8,12 @@ export const font12 = (weight: Weight) => css`
   font-weight: ${weight};
 `;
 
+export const font13 = (weight: Weight) => css`
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: ${weight};
+`;
+
 export const font14 = (weight: Weight) => css`
   font-size: 14px;
   line-height: 1.2;
@@ -18,11 +24,19 @@ export const font15 = (weight: Weight) => css`
   font-size: 15px;
   line-height: 1.2;
   font-weight: ${weight};
-  // @NOTE: line-height: 20, 21일 땐 덮어씌우기
+  // @NOTE: line-height: 19.2, 20, 21일 땐 덮어씌우기
 `;
 
 export const font16 = (weight: Weight) => css`
   font-size: 16px;
   line-height: 1.1875;
   font-weight: ${weight};
+`;
+
+export const fontRoboto = (fs = 80, lh = 1.175, color = 'white') => css`
+  font-family: 'Roboto', sans-serif;
+
+  font-size: ${fs}px;
+  line-height: ${lh};
+  color: ${color};
 `;
