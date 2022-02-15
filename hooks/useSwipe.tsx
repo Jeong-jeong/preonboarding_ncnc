@@ -30,6 +30,7 @@ const useSwipe = (fetchData: ISwipe) => {
     }
 
     if (windowWidth) {
+      setIsTransition(false);
       setPosition((initialIndexOforiginSlide - 1) * -windowWidth);
       lastPositionXRef.current = (initialIndexOforiginSlide - 1) * -windowWidth;
     }
