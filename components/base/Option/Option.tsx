@@ -1,15 +1,25 @@
 import { Dispatch, SetStateAction } from 'react';
 import * as S from './Style';
 import { IOption } from 'types';
+import { getDiscount } from 'utils/fucntions';
 
 interface OptionProps {
   option: IOption;
+  originalPrice: number;
   setValue: Dispatch<SetStateAction<string>>;
   toggle: () => void;
   setIsChecked: Dispatch<SetStateAction<boolean>>;
 }
 
-const Option = ({ option, setValue, toggle, setIsChecked }: OptionProps) => {
+const Option = ({
+  option,
+  originalPrice,
+  isActive,
+  isChecked,
+  setValue,
+  toggle,
+  setIsChecked,
+}: OptionProps) => {
   let date = '';
   let expireAt = '';
 
@@ -24,6 +34,7 @@ const Option = ({ option, setValue, toggle, setIsChecked }: OptionProps) => {
 
   const price = option.sellingPrice.toLocaleString() + '원';
   const value = `${date}/ ${price}`;
+  const discount = getDiscount(originalPrice, option.sellingPrice);
 
   const handleClick = () => {
     setValue(value);
@@ -42,7 +53,7 @@ const Option = ({ option, setValue, toggle, setIsChecked }: OptionProps) => {
           <S.TextBlack>{price}</S.TextBlack>
         </div>
       </div>
-      <S.Discount>{option.count}%</S.Discount>
+      <S.Discount>{discount}%</S.Discount>
     </S.Option>
   );
 };

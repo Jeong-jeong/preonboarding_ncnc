@@ -40,6 +40,7 @@ const ItemsPage = ({ data }: ItemsPageProps) => {
         <OptionBox
           options={options}
           warning={warning}
+          originalPrice={originalPrice}
           toggle={toggle}
           isActive={isActive}
           isChecked={isChecked}
