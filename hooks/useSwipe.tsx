@@ -35,8 +35,6 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
     }
   }, [windowWidth]);
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     //@NOTE: 드래그 될 때마다 transform 위치 변경
     if (!swipeRef.current) return;
