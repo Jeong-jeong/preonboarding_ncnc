@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 
 interface useSwipeProps<T> {
   list: T[];
@@ -101,7 +101,7 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
     temporaryTransition(300);
   };
 
-  const mouseStart = (e: MouseEvent) => {
+  const mouseStart = (e: React.MouseEvent<HTMLUListElement>) => {
     // @NOTE: 왼쪽 마우스 클릭일 때만
     if (e.buttons === 1) {
       setSwipeStartX(e.clientX);
@@ -109,12 +109,12 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
     }
   };
 
-  const touchStart = (e: TouchEvent) => {
+  const touchStart = (e: React.TouchEvent<HTMLUListElement>) => {
     setSwipeStartX(e.touches[0].clientX);
     setIsDragging(true);
   };
 
-  const dragMove = (e: MouseEvent) => {
+  const dragMove = (e: React.MouseEvent<HTMLUListElement>) => {
     if (!isDragging) return;
 
     if (e.buttons === 1) {
@@ -122,7 +122,7 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
     }
   };
 
-  const touchMove = (e: TouchEvent) => {
+  const touchMove = (e: React.TouchEvent<HTMLUListElement>) => {
     if (!isDragging) return;
 
     setSwipeEndX(e.touches[0].clientX);
