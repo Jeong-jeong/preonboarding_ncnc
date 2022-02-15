@@ -26,12 +26,6 @@ const OptionBox = ({
   let notice = ['등록된 데이터가 없습니다.'];
   let refund = ['등록된 데이터가 없습니다.'];
 
-  if (warning) {
-    [notice, refund] = warning.split('[환불규정]');
-    notice = notice.split('\n').filter((el) => el[0] == ' ');
-    refund = refund.split('\n');
-  }
-
   return (
     <S.OptionBoxContainer>
       <S.Name>유의사항</S.Name>
