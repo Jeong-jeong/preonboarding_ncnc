@@ -85,6 +85,7 @@ export const ContentWrapper = styled.div`
   padding: 16px ${({ theme }) => `${theme.gap.baseInner}px`};
   margin: ${({ theme }) => `${theme.gap.baseGap}px`} 0;
   background: ${({ theme }) => theme.colors.white};
+  margin-top: 60px;
 `;
 
 export const ContentText = styled.span`

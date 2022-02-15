@@ -4,8 +4,12 @@ import { font15 } from 'styles/font';
 
 export const HeaderInner = styled.div`
   ${flexbox({ jc: 'between' })};
+  width: 100%;
   max-width: 1440px;
-  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 50px;
   margin: 0 auto;
   padding: 7px 19px;
 `;
