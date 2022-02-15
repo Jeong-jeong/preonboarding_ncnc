@@ -18,7 +18,7 @@ const Pagination = ({ list, currentIndex, countCopiedTotal }: PaginationProps) =
         />
       </Head>
       {React.Children.toArray(
-        list.map((_, index) => (
+        list?.map((_, index) => (
           <S.PaginationItem isSameIndex={currentIndex % countCopiedTotal === index}>
             .
           </S.PaginationItem>

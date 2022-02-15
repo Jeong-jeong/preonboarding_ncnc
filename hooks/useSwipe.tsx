@@ -1,20 +1,18 @@
 import React, { useCallback, useEffect, useState, useRef, useMemo } from 'react';
+import { ISwipe } from 'types';
 
-interface useSwipeProps<T> {
-  list: T[];
-  windowWidth: number;
-}
+const useSwipe = (fetchData: ISwipe) => {
+  type List = ISwipe['list'];
 
-const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
-  const { list, windowWidth } = payload;
+  const { list, windowWidth } = fetchData;
 
-  const ORIGIN_LIST_LENGTH = list.length;
+  const ORIGIN_LIST_LENGTH = list?.length;
   const COUNT_COPYIED_TOTAL = 3;
 
   const swipeRef = useRef<HTMLUListElement>(null);
   const lastPositionXRef = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(ORIGIN_LIST_LENGTH);
-  const [itemList, setItemList] = useState<Type[]>([]);
+  const [itemList, setItemList] = useState<List>([]);
   const [isTransition, setIsTransition] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
   const [swipeStartX, setSwipeStartX] = useState(0);
@@ -27,7 +25,9 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
 
   useEffect(() => {
     // @NOTE: 초기화 작업
-    setItemList([...list, ...list, ...list]);
+    if (list) {
+      setItemList([...list, ...list, ...list]);
+    }
 
     if (windowWidth) {
       setPosition((initialIndexOforiginSlide - 1) * -windowWidth);
@@ -44,8 +44,6 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
   }, [swipeRef.current, swipeEndX]);
 
   const handleTransitionEnd = useCallback(() => {
-    console.log(currentIndex);
-
     if (currentIndex === 0 || currentIndex === ORIGIN_LIST_LENGTH * 2) {
       // @NOTE: 현재 인덱스가 복붙한 인덱스일 때 transition을 끔
       setIsTransition(false);
