@@ -37,15 +37,15 @@ const ItemsPage = ({ data }: ItemsPageProps) => {
           brandName={conCategory2.name}
           productionId={id}
         />
-        <OptionBox
-          options={options}
-          warning={warning}
-          originalPrice={originalPrice}
-          toggle={toggle}
-          isActive={isActive}
-          isChecked={isChecked}
-          setIsChecked={setIsChecked}
-        />
+        {/*<OptionBox*/}
+        {/*  options={options}*/}
+        {/*  warning={warning}*/}
+        {/*  originalPrice={originalPrice}*/}
+        {/*  toggle={toggle}*/}
+        {/*  isActive={isActive}*/}
+        {/*  isChecked={isChecked}*/}
+        {/*  setIsChecked={setIsChecked}*/}
+        {/*/>*/}
       </S.ProductWrapper>
       <BuyButton checkValue={!isActive} toggle={toggle}>
         {isActive ? '구매하기' : isChecked ? '구매하기' : '옵션 선택하기'}
