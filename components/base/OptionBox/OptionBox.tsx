@@ -6,6 +6,7 @@ import { IOption } from 'types';
 interface OptionBoxProps {
   options: IOption[];
   warning: string;
+  originalPrice: number;
   toggle: () => void;
   isActive: boolean;
   isChecked: boolean;
@@ -15,6 +16,7 @@ interface OptionBoxProps {
 const OptionBox = ({
   options,
   warning,
+  originalPrice,
   toggle,
   isActive,
   isChecked,
@@ -43,6 +45,7 @@ const OptionBox = ({
               options.map((option) => (
                 <Option
                   option={option}
+                  originalPrice={originalPrice}
                   setValue={setValue}
                   setIsChecked={setIsChecked}
                   toggle={toggle}
