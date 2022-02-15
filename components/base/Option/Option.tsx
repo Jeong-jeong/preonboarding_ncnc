@@ -1,21 +1,27 @@
 import { Dispatch, SetStateAction } from 'react';
 import * as S from './Style';
-
-interface OptionType {
-  expireAt: string;
-  count: number;
-  sellingPrice: number;
-}
+import { IOption } from 'types';
 
 interface OptionProps {
-  option: OptionType;
+  option: IOption;
   setValue: Dispatch<SetStateAction<string>>;
   toggle: () => void;
   setIsChecked: Dispatch<SetStateAction<boolean>>;
 }
 
 const Option = ({ option, setValue, toggle, setIsChecked }: OptionProps) => {
-  const date = option.expireAt.split('T', 1) + ' 까지';
+  let date = '';
+  let expireAt = '';
+
+  if (option.expireAt.indexOf('Z') > 0) {
+    expireAt = option.expireAt.split('T', 1).join();
+    date = `${expireAt.replace('-', '.').replace('-', '.')} 까지`;
+  } else {
+    const expireAt = option.expireAt.substring(4, 15).split(' ');
+    const month = Month[expireAt[0]];
+    date = `${expireAt[2]}.${month}.${expireAt[1]} 까지`;
+  }
+
   const price = option.sellingPrice.toLocaleString() + '원';
   const value = `${date}/ ${price}`;
 
@@ -39,6 +45,21 @@ const Option = ({ option, setValue, toggle, setIsChecked }: OptionProps) => {
       <S.Discount>{option.count}%</S.Discount>
     </S.Option>
   );
+};
+
+const Month = {
+  Jan: 1,
+  Feb: 2,
+  Mar: 3,
+  Apr: 4,
+  May: 5,
+  Jun: 6,
+  Jul: 7,
+  Aug: 8,
+  Sep: 9,
+  Oct: 10,
+  Nov: 11,
+  Dec: 12,
 };
 
 export default Option;
