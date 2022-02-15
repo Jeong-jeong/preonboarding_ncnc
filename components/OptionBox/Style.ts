@@ -44,6 +44,7 @@ export const Title = styled.h1`
 `;
 
 export const OptionWrapper = styled.div`
-  ${flexbox({ fd: 'column' })};
+  height: 100%;
+  ${flexbox({ fd: 'column', jc: 'start' })};
   background: ${theme.colors.white};
 `;
