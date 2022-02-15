@@ -8,7 +8,9 @@ export const HeaderInner = styled.div`
   width: 100%;
   max-width: ${({ theme }) => `${theme.size.maxWidth}px`};
   position: fixed;
-  margin: 0 auto;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
   height: ${({ theme }) => `${theme.size.baseHeight}px`};
   padding: 7px 19px;
   background-color: ${({ theme }) => theme.colors.white};
