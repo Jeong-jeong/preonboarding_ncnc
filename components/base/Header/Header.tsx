@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/Link';
 import * as S from './Style';
 import { MenuBar } from 'components/base';
 import { useWindowWidth } from 'hooks';
-
 import { IcoMenuBar, IcoClose, IcoArrow } from 'public/images';
 
 const Header = () => {
@@ -40,13 +40,17 @@ const Header = () => {
             <S.ContentWrapper>
               <S.ContentText>고객센터</S.ContentText>
               <S.IcoArrowWrapper>
-                <Image
-                  className="ico-arrow"
-                  src={IcoArrow}
-                  width={18}
-                  height={18}
-                  onClick={() => console.log('click')}
-                />
+                <Link href="/contacts">
+                  <a>
+                    <Image
+                      className="ico-arrow"
+                      src={IcoArrow}
+                      width={18}
+                      height={18}
+                      onClick={() => console.log('click')}
+                    />
+                  </a>
+                </Link>
               </S.IcoArrowWrapper>
             </S.ContentWrapper>
             <S.BlankBox />
