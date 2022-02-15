@@ -1,6 +1,6 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 import * as S from './Style';
-import { Option, CheckedOption } from 'components';
+import { Option, CheckedOption } from 'components/base';
 
 interface OptionType {
   expireAt: string;

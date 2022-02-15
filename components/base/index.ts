@@ -7,3 +7,8 @@ export { default as QuitButton } from './QuitButton/QuitButton';
 export { default as Header } from './Header/Header';
 export { default as MenuBar } from './MenuBar/MenuBar';
 export { default as MenuImage } from './MenuImage/MenuImage';
+export { default as CategoryList } from './CategoryList/CategoryList';
+export { default as Category } from './Category/Category';
+export { default as OptionBox } from './OptionBox/OptionBox';
+export { default as Option } from './Option/Option';
+export { default as CheckedOption } from './CheckedOption/CheckedOption';
