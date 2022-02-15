@@ -1,24 +1,39 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Header, CategoryList } from 'components/base';
+import { ProductionList, Swiper } from 'components/domain';
 import { getCategories, getSoonItems } from 'api';
 import { useAxios } from 'hooks';
-import { SoonItem, Category } from 'types';
-
-const HomeWrapper = styled.div`
-  background-color: yellow;
-`;
+import { ISoonItem, ICategory } from 'types';
+import * as S from './Style';
 
 interface HomeProps {
   data: {
-    categories: Category[];
+    categories: ICategory[];
   };
 }
 
 const Home = ({ data }: HomeProps) => {
-  const { categories } = data; // 카테고리 - 대분류
-  const soonItems = useAxios<SoonItem[]>(getSoonItems); // 땡처리 아이템
+  const { categories } = data;
+  const soonItems = useAxios<ISoonItem[]>(getSoonItems);
 
-  return <HomeWrapper>Home</HomeWrapper>;
+  return (
+    <>
+      <Header />
+      <S.SwiperWrapper>
+        <Swiper />
+      </S.SwiperWrapper>
+      <S.CategoriesWrapper>
+        <CategoryList categories={categories} size={43} />
+      </S.CategoriesWrapper>
+      <S.ItemListWrapper>
+        <S.SubTitle>놓치지 마세요</S.SubTitle>
+        <S.ItemTitle>오늘의 땡처리콘!</S.ItemTitle>
+        <S.ProductionListWrapper>
+          {soonItems && <ProductionList conItems={soonItems} />}
+        </S.ProductionListWrapper>
+      </S.ItemListWrapper>
+    </>
+  );
 };
 
 export const getStaticProps = async () => {
