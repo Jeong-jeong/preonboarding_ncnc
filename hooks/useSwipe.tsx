@@ -6,8 +6,8 @@ const useSwipe = (fetchData: ISwipe) => {
 
   const { list, windowWidth } = fetchData;
 
-  const ORIGIN_LIST_LENGTH = list?.length;
   const COUNT_COPYIED_TOTAL = 3;
+  const ORIGIN_LIST_LENGTH = list ? list.length : COUNT_COPYIED_TOTAL;
 
   const swipeRef = useRef<HTMLUListElement>(null);
   const lastPositionXRef = useRef(0);
@@ -33,7 +33,7 @@ const useSwipe = (fetchData: ISwipe) => {
       setPosition((initialIndexOforiginSlide - 1) * -windowWidth);
       lastPositionXRef.current = (initialIndexOforiginSlide - 1) * -windowWidth;
     }
-  }, [windowWidth]);
+  }, [windowWidth, list]);
 
   useEffect(() => {
     //@NOTE: 드래그 될 때마다 transform 위치 변경
@@ -87,6 +87,15 @@ const useSwipe = (fetchData: ISwipe) => {
       }
     }
   }, [draggedX]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsTransition(false);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [windowWidth]);
 
   const setPosition = (scrolledValue: number) => {
     if (swipeRef.current) {
@@ -147,6 +156,7 @@ const useSwipe = (fetchData: ISwipe) => {
 
   return {
     COUNT_COPYIED_TOTAL,
+    ORIGIN_LIST_LENGTH,
     itemList,
     swipeRef,
     currentIndex,

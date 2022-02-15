@@ -8,34 +8,29 @@ import * as S from './Style';
 const Swiper = () => {
   const windowWidth = useWindowWidth();
 
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [fetchData, setFetchData] = useState<ISwipe | any>({});
 
   const getSwipeList = async () => {
     try {
       setLoading(true);
       const { data } = await axios.get('../mock/slideList.json');
-      setFetchData({ ...data });
-      setLoading(false);
+      setFetchData(data);
     } catch (e) {
-      console.log('getSwiperList API 에러');
+      if (e instanceof Error) {
+        throw new Error(e.message);
+      }
     }
+    setLoading(false);
   };
 
   useEffect(() => {
     getSwipeList();
   }, []);
 
-  // const payload = {
-  //   list: [
-  //     'https://unsplash.it/800/201',
-  //     'https://unsplash.it/800/202',
-  //     'https://unsplash.it/800/203',
-  //   ],
-  //   windowWidth,
-  // };
   const {
     COUNT_COPYIED_TOTAL,
+    ORIGIN_LIST_LENGTH,
     itemList,
     swipeRef,
     currentIndex,
@@ -46,7 +41,7 @@ const Swiper = () => {
     touchMove,
     dragEnd,
     handleTransitionEnd,
-  } = useSwipe(fetchData);
+  } = useSwipe({ ...fetchData, windowWidth });
 
   return (
     <S.WithPagination>
@@ -54,6 +49,9 @@ const Swiper = () => {
         <S.SwiperList
           ref={swipeRef}
           isTransition={isTransition}
+          windowWidth={windowWidth}
+          originListLength={ORIGIN_LIST_LENGTH}
+          countCopiedTotal={COUNT_COPYIED_TOTAL}
           onTransitionEnd={handleTransitionEnd}
           onMouseDown={mouseStart}
           onTouchStart={touchStart}
