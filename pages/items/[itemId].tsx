@@ -19,6 +19,8 @@ interface ItemsPageProps {
 const ItemsPage = ({ data }: ItemsPageProps) => {
   const { conItem } = data;
   const { toggle, isActive, isChecked, setIsChecked } = useOption({ initialState: false });
+  const { imageUrl, name, minSellingPrice, originalPrice, conCategory2, id, options, warning } =
+    conItem;
 
   return (
     <S.ItemsPageWrapper>
@@ -27,27 +29,26 @@ const ItemsPage = ({ data }: ItemsPageProps) => {
       </MenuBar>
       <S.ProductWrapper>
         <ProductionItem
-          imageUrl={conItem.imageUrl}
-          productionName={conItem.name}
-          minSellingPrice={conItem.minSellingPrice}
-          originalPrice={conItem.originalPrice}
+          imageUrl={imageUrl}
+          productionName={name}
+          minSellingPrice={minSellingPrice}
+          originalPrice={originalPrice}
           size="big"
-          brandName={conItem.conCategory2.name}
-          productionId={conItem.id}
+          brandName={conCategory2.name}
+          productionId={id}
         />
         <OptionBox
-          data={conItem}
+          options={options}
+          warning={warning}
           toggle={toggle}
           isActive={isActive}
           isChecked={isChecked}
           setIsChecked={setIsChecked}
         />
       </S.ProductWrapper>
-      <BuyButton
-        children={isActive ? '구매하기' : isChecked ? '구매하기' : '옵션 선택하기'}
-        checkValue={!isActive}
-        toggle={toggle}
-      />
+      <BuyButton checkValue={!isActive} toggle={toggle}>
+        {isActive ? '구매하기' : isChecked ? '구매하기' : '옵션 선택하기'}
+      </BuyButton>
     </S.ItemsPageWrapper>
   );
 };

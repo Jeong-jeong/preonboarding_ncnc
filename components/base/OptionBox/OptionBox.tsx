@@ -1,20 +1,27 @@
-import React, { useState, Dispatch, SetStateAction, useEffect } from 'react';
+import React, { useState, Dispatch, SetStateAction } from 'react';
 import * as S from './Style';
 import { Option, CheckedOption } from 'components/base';
-import { IConItem } from 'types';
+import { IOption } from 'types';
 
 interface OptionBoxProps {
-  data: IConItem;
+  options: IOption[];
+  warning: string;
   toggle: () => void;
   isActive: boolean;
   isChecked: boolean;
   setIsChecked: Dispatch<SetStateAction<boolean>>;
 }
 
-const OptionBox = ({ data, toggle, isActive, isChecked, setIsChecked }: OptionBoxProps) => {
+const OptionBox = ({
+  options,
+  warning,
+  toggle,
+  isActive,
+  isChecked,
+  setIsChecked,
+}: OptionBoxProps) => {
   const [value, setValue] = useState<string>('');
-  const options = data.options;
-  let [notice, refund] = data.warning.split('[환불규정]');
+  let [notice, refund] = warning.split('[환불규정]');
 
   notice = notice.split('\n').filter((el) => el[0] == ' ');
   refund = refund.split('\n');
