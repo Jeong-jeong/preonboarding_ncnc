@@ -9,11 +9,13 @@ export const HeaderInner = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  height: 50px;
   margin: 0 auto;
+  height: ${({ theme }) => `${theme.size.baseHeight}px`};
   padding: 7px 19px;
+  margin: 0 auto;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Title = styled.h1`
-  ${font15(600)}
+  ${font15(600)};
 `;

@@ -24,7 +24,7 @@ export const font15 = (weight: Weight) => css`
   font-size: 15px;
   line-height: 1.2;
   font-weight: ${weight};
-  // @NOTE: line-height: 20, 21일 땐 덮어씌우기
+  // @NOTE: line-height: 19.2, 20, 21일 땐 덮어씌우기
 `;
 
 export const font16 = (weight: Weight) => css`
