@@ -25,7 +25,7 @@ const ContactTab = ({ dataList }: ContactTabProps) => {
         <h2>자주 묻는 질문</h2>
         <S.ButtonWrapper>
           {React.Children.toArray(
-            dataList.map(({ _, types }, index) => (
+            dataList.map(({ types }, index) => (
               <S.Button
                 aria-label={types.key}
                 isActive={currentItem.types.id === index + 1}
