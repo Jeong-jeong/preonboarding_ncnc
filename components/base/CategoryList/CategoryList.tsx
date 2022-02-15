@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './Style';
-import { Category } from '/components';
+import { Category } from '/components/base';
 
 interface mokType {
   id: number;
