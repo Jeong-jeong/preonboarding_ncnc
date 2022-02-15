@@ -5,6 +5,7 @@ export const NavigationBarWrapper = styled.div`
   background: ${({ theme }) => theme.colors.white};
   position: fixed;
   top: 50px;
+  z-index: 2;
 `;
 
 export const SlideWrapper = styled.ul`
