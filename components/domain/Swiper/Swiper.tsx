@@ -15,6 +15,7 @@ const Swiper = () => {
     windowWidth,
   };
   const {
+    COUNT_COPYIED_TOTAL,
     itemList,
     swipeRef,
     currentIndex,
@@ -41,7 +42,7 @@ const Swiper = () => {
           onMouseLeave={dragEnd}
         >
           {React.Children.toArray(
-            itemList.map((src: string, index) => (
+            itemList.map((src: string) => (
               <li>
                 <S.Image src={src} width={windowWidth} />
               </li>
@@ -49,7 +50,11 @@ const Swiper = () => {
           )}
         </S.SwiperList>
       </S.SwiperListWrapper>
-      <Pagination list={payload.list} currentIndex={currentIndex} />
+      <Pagination
+        list={payload.list}
+        currentIndex={currentIndex}
+        countCopiedTotal={COUNT_COPYIED_TOTAL}
+      />
     </S.WithPagination>
   );
 };

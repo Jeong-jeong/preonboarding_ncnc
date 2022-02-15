@@ -134,6 +134,7 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
   };
 
   return {
+    COUNT_COPYIED_TOTAL,
     itemList,
     swipeRef,
     currentIndex,

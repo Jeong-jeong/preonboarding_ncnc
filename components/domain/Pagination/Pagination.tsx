@@ -5,9 +5,10 @@ import * as S from './Style';
 interface PaginationProps {
   list: string[];
   currentIndex: number;
+  countCopiedTotal: number;
 }
 
-const Pagination = ({ list, currentIndex }: PaginationProps) => {
+const Pagination = ({ list, currentIndex, countCopiedTotal }: PaginationProps) => {
   return (
     <S.Pagination>
       <Head>
@@ -18,7 +19,9 @@ const Pagination = ({ list, currentIndex }: PaginationProps) => {
       </Head>
       {React.Children.toArray(
         list.map((_, index) => (
-          <S.PaginationItem isSameIndex={currentIndex % 3 === index}>.</S.PaginationItem>
+          <S.PaginationItem isSameIndex={currentIndex % countCopiedTotal === index}>
+            .
+          </S.PaginationItem>
         )),
       )}
     </S.Pagination>
