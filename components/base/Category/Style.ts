@@ -8,10 +8,12 @@ export interface SizeProps {
 
 export const Category = styled.a<SizeProps>`
   float: left;
-  width: 32.333%;
+  width: calc(100% / 3);
   min-width: 112px;
-  height: 94px;
-  margin: 1px;
+  padding: 1px;
+`;
+
+export const CategoryInner = styled.div`
   padding: ${({ size }) => (size === 43 ? '11px 0 14px' : '17px 0 13px')};
   background: ${({ theme }) => `${theme.colors.white}`};
   border-radius: ${({ theme }) => `${theme.size.borderRadiuss}px`};
