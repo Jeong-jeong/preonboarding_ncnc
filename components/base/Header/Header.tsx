@@ -45,16 +45,16 @@ const Header = ({ setImageState }: HeaderProps) => {
               마이페이지
             </MenuBar>
             <Gapbox />
-            <S.ContentWrapper>
-              <S.ContentText>고객센터</S.ContentText>
-              <S.IcoArrowWrapper>
-                <Link href="/contacts" passHref>
-                  <a>
-                    <Image className="ico-arrow" src={IcoArrow} width={16} height={16} />
-                  </a>
-                </Link>
-              </S.IcoArrowWrapper>
-            </S.ContentWrapper>
+            <Link href="/contacts" passHref>
+              <a>
+                <S.ContentWrapper>
+                  <S.ContentText>고객센터</S.ContentText>
+                  <S.IcoArrowWrapper>
+                    <IcoArrow className="ico-arrow" />
+                  </S.IcoArrowWrapper>
+                </S.ContentWrapper>
+              </a>
+            </Link>
             <S.BlankBox />
           </S.MenuWrapper>
         </S.HeaderMenu>
