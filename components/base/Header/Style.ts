@@ -3,6 +3,7 @@ import { flexbox } from 'styles/commonStyle';
 import { font15 } from 'styles/font';
 
 export const HeaderWrapper = styled.header`
+  z-index: 10;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -62,7 +63,9 @@ export const HeaderMenu = styled.ul<{ windowWidth: number }>`
   position: absolute;
   transition: 0.45s;
   transform: ${({ windowWidth }) => `translateX(-${windowWidth}px)`};
-  width: ${({ windowWidth }) => `${windowWidth}px`};
+  /* width: ${({ windowWidth }) => `${windowWidth}px`}; */
+  width: 100%;
+  max-width: 672px;
   height: 100vh;
   background: ${({ theme }) => theme.colors.background};
 `;
@@ -88,7 +91,7 @@ export const ContentWrapper = styled.div`
   padding: 16px ${({ theme }) => `${theme.gap.baseInner}px`};
   margin: ${({ theme }) => `${theme.gap.baseGap}px`} 0;
   background: ${({ theme }) => theme.colors.white};
-  margin-top: 60px;
+  margin-top: 50px;
 `;
 
 export const ContentText = styled.span`
