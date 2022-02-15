@@ -13,10 +13,12 @@ export const HeaderContainer = styled.div`
   }
 `;
 export const ArticleContainer = styled.div`
-  padding: 100px 0 0 0;
+  padding: 50px 0 0 0;
 `;
 export const ItemCount = styled.div`
   ${flexbox({ jc: 'start' })};
+  max-width: 672px;
+
   padding: ${({ theme }) => theme.gap.baseGap}px;
   width: 100%;
   height: 40px;

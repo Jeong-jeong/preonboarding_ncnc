@@ -3,6 +3,7 @@ import { hideScrollbar } from 'styles/commonStyle';
 
 export const NavigationBarWrapper = styled.div`
   width: 100%;
+  max-width: 672px;
   background: ${({ theme }) => theme.colors.white};
   position: fixed;
   top: 50px;
