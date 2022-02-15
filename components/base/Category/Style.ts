@@ -15,8 +15,17 @@ export const Category = styled.a<SizeProps>`
   padding: ${({ size }) => (size === 43 ? '11px 0 14px' : '17px 0 13px')};
   background: ${({ theme }) => `${theme.colors.white}`};
   border-radius: ${({ theme }) => `${theme.size.borderRadiuss}px`};
-  ${flexbox({ fd: 'column', jc: 'between' })};
   cursor: pointer;
+`;
+
+export const ContentsWrapper = styled.div`
+  height: 100%;
+  ${flexbox({ fd: 'column', jc: 'between' })};
+  transition: 0.6s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const ImgWrap = styled.div<SizeProps>`

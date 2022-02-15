@@ -12,10 +12,12 @@ const Category = ({ category, size }: CategoryProps) => {
   return (
     <Link href={`${id}`}>
       <S.Category size={size}>
-        <S.ImgWrap size={size}>
-          <img src={imageUrl} alt={`${name} 이미지`} />
-        </S.ImgWrap>
-        <S.Name size={size}>{name}</S.Name>
+        <S.ContentsWrapper>
+          <S.ImgWrap size={size}>
+            <img src={imageUrl} alt={`${name} 이미지`} />
+          </S.ImgWrap>
+          <S.Name size={size}>{name}</S.Name>
+        </S.ContentsWrapper>
       </S.Category>
     </Link>
   );
