@@ -5,8 +5,13 @@ import * as S from './Style';
 import { MenuBar } from 'components/base';
 import { useWindowWidth } from 'hooks';
 import { IcoMenuBar, IcoClose, IcoArrow } from 'public/images';
+import { Gapbox } from 'styles/commonCompo';
 
-const Header = () => {
+interface HeaderProps {
+  setImageState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Header = ({ setImageState }: HeaderProps) => {
   const [slideToggle, setSlideToggle] = useState(false);
 
   const handleToggleMenu = (e: React.MouseEvent<HTMLOrSVGElement>) => {
@@ -15,9 +20,11 @@ const Header = () => {
     if (targetElem) {
       setSlideToggle(!slideToggle);
     }
+    setImageState(false);
   };
-  const handleCloseMenu = (e: React.MouseEvent<HTMLOrSVGElement>) => {
+  const handleCloseMenu = () => {
     setSlideToggle(!slideToggle);
+    setImageState(true);
   };
 
   const windowWidth = useWindowWidth();
@@ -37,12 +44,13 @@ const Header = () => {
             <MenuBar img={IcoClose} onClick={handleCloseMenu}>
               마이페이지
             </MenuBar>
+            <Gapbox />
             <S.ContentWrapper>
               <S.ContentText>고객센터</S.ContentText>
               <S.IcoArrowWrapper>
                 <Link href="/contacts" passHref>
                   <a>
-                    <IcoArrow />
+                    <Image className="ico-arrow" src={IcoArrow} width={16} height={16} />
                   </a>
                 </Link>
               </S.IcoArrowWrapper>
