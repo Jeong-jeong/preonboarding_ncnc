@@ -58,6 +58,8 @@ $ yarn start
 ## 📝 기능 목록 명세
 #### ✔ 김지영
 #### ✔ 고병표
+- `button`, `Header`, `Drawer` 컴포넌트 구현
+- main 페이지 구현
 #### ✔ 유제호
 - `NavigationBar`, `ProductionList` 컴포넌트 구현
 - categories/brands 페이지 구현
