@@ -1,10 +1,12 @@
-import { GetStaticProps } from 'next';
 import React from 'react';
+import { GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import { getFAQTypes, getQas } from 'api';
 import { IQas } from 'types';
 import QaType from 'types/QaType';
-import { ContactTab } from 'components/base';
+import { ContactTab, MenuBar } from 'components/base';
 import { Gapbox } from 'styles/commonCompo';
+import { IcoClose } from 'public/images';
 import * as S from './Style';
 
 export type QaTypeAnswer = { types: QaType; qas: IQas[] };
@@ -17,10 +19,18 @@ interface ContactPageProps {
 }
 
 const ContactPage = ({ data }: ContactPageProps) => {
+  const router = useRouter();
   const { qaTypeAnswer } = data;
+
+  const handleClose = () => {
+    router.back();
+  };
 
   return (
     <S.ContactPageWrapper>
+      <MenuBar img={IcoClose} onClick={handleClose}>
+        고객 센터
+      </MenuBar>
       <S.ContactInfos>
         <h2>상담시간 안내</h2>
         <p>평일 10:00 ~ 18:00</p>

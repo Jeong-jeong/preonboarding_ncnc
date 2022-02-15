@@ -8,7 +8,8 @@ export const ContactPageWrapper = styled.div`
 `;
 
 export const ContactInfos = styled.section`
-  padding: ${({ theme }) => `${theme.gap.baseInner}px`};
+  padding: ${({ theme }) => `0 ${theme.gap.baseInner}px`};
+  padding-top: ${({ theme }) => `${theme.gap.baseInner + 30}px`};
   padding-bottom: 110px;
   background-color: ${({ theme }) => theme.colors.white};
 
