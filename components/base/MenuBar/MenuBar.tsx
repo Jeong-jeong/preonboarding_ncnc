@@ -18,13 +18,13 @@ const MenuBar = ({ img, children, onClick }: MenuBarProps) => {
           <div></div>
           <S.Title>{children}</S.Title>
           <div>
-            <MenuImage img={img} num={'16'} onClick={onClick} />
+            <MenuImage img={img} num={16} onClick={onClick} />
           </div>
         </S.HeaderInner>
       ) : (
         <S.HeaderInner>
           <div>
-            <MenuImage img={img} num={'18'} onClick={onClick} />
+            <MenuImage img={img} num={18} onClick={onClick} />
           </div>
           <S.Title>{children}</S.Title>
           <div></div>

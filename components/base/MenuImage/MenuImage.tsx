@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export interface MenuBarProps {
   img: StaticImageData;
-  num: string;
+  num: number;
   onClick: (e: React.MouseEvent<HTMLOrSVGElement>) => void;
 }
 
