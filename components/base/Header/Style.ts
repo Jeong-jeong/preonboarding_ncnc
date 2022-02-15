@@ -62,7 +62,7 @@ export const HeaderMenu = styled.ul`
   transform: translateX(-280px);
   width: 280px;
   height: 100vh;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 export const MenuWrapper = styled.header`
@@ -73,4 +73,26 @@ export const MenuWrapper = styled.header`
   height: 50px;
   z-index: 3;
   background: ${({ theme }) => theme.colors.white};
+`;
+
+export const IcoArrowWrapper = styled.span`
+  .ico-arrow {
+    transform: rotate(90deg);
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  ${flexbox({ jc: 'between' })};
+  padding: 16px 17px;
+  margin: 10px 0;
+  background: ${({ theme }) => theme.colors.white};
+`;
+
+export const ContentText = styled.span`
+  ${font15(500)}
+`;
+
+export const BlankBox = styled.div`
+  height: 100vh;
+  background-color: ${({ theme }) => theme.colors.white};
 `;

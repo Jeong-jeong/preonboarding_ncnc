@@ -18,7 +18,6 @@ const Header = () => {
   const handleCloseMenu = (e: React.MouseEvent<HTMLOrSVGElement>) => {
     setSlideToggle(!slideToggle);
   };
-
   return (
     <S.HeaderWrapper>
       <S.HeaderInner>
@@ -34,7 +33,19 @@ const Header = () => {
             <MenuBar img={IcoClose} onClick={handleCloseMenu}>
               마이페이지
             </MenuBar>
-            {/* <div>작성 공간</div> */}
+            <S.ContentWrapper>
+              <S.ContentText>고객센터</S.ContentText>
+              <S.IcoArrowWrapper>
+                <Image
+                  className="ico-arrow"
+                  src={IcoArrow}
+                  width={18}
+                  height={18}
+                  onClick={() => console.log('click')}
+                />
+              </S.IcoArrowWrapper>
+            </S.ContentWrapper>
+            <S.BlankBox></S.BlankBox>
           </S.MenuWrapper>
         </S.HeaderMenu>
       </S.MyPageWrapper>
