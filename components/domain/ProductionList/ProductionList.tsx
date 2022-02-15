@@ -18,7 +18,7 @@ const ProductionList = ({ conItems }: ProductionListProps) => {
             originalPrice={originalPrice}
             minSellingPrice={minSellingPrice}
             imageUrl={imageUrl}
-            brandName={conCategory2.name}
+            brandName={conCategory2?.name}
           />
         )),
       )}

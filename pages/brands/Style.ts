@@ -17,7 +17,7 @@ export const ArticleContainer = styled.div`
 `;
 export const ItemCount = styled.div`
   ${flexbox({ jc: 'start' })};
-  padding: ${({ theme }) => theme.gap.baseGap};
+  padding: ${({ theme }) => theme.gap.baseGap}px;
   width: 100%;
   height: 40px;
   background: ${({ theme }) => theme.colors.white};

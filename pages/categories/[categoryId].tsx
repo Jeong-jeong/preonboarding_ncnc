@@ -5,9 +5,10 @@ import { ICategory, IConItem, INested } from 'types';
 import { getCategories, getNested } from 'api';
 import { CategoryList, MenuBar, NavigationBar } from 'components/base';
 import { ProductionList } from 'components/domain';
-import { IcoClose } from '../../public/images';
+import { IcoArrow, IcoClose } from '../../public/images';
 
 import * as S from './Style';
+import Router from 'next/router';
 
 interface CategoryPageProps {
   data: {
@@ -29,7 +30,9 @@ const CategoryPage = ({ data }: CategoryPageProps) => {
   return (
     <S.CategoryPageWrapper>
       <S.HeaderContainer>
-        <MenuBar img={IcoClose} onClick={() => {}} children={name} />
+        <MenuBar onClick={() => Router.push('/')} title={name}>
+          <IcoArrow />
+        </MenuBar>
         <NavigationBar categories={categories} />
       </S.HeaderContainer>
       <S.ArticleContainer>
