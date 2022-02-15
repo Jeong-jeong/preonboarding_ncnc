@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useCallback, useEffect, useState, useRef, useMemo } from 'react';
 
 interface useSwipeProps<T> {
   list: T[];
@@ -15,7 +15,7 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
   const lastPositionXRef = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(ORIGIN_LIST_LENGTH);
   const [itemList, setItemList] = useState<Type[]>([]);
-  const [isTransition, setIsTransition] = useState(false);
+  const [isTransition, setIsTransition] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
   const [swipeStartX, setSwipeStartX] = useState(0);
   const [swipeEndX, setSwipeEndX] = useState(0);
@@ -35,6 +35,8 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
     }
   }, [windowWidth]);
 
+  useEffect(() => {}, []);
+
   useEffect(() => {
     //@NOTE: 드래그 될 때마다 transform 위치 변경
     if (!swipeRef.current) return;
@@ -43,27 +45,36 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
     }
   }, [swipeRef.current, swipeEndX]);
 
+  const handleTransitionEnd = useCallback(() => {
+    console.log(currentIndex);
+
+    if (currentIndex === 0 || currentIndex === ORIGIN_LIST_LENGTH * 2) {
+      // @NOTE: 현재 인덱스가 복붙한 인덱스일 때 transition을 끔
+      setIsTransition(false);
+    }
+  }, [currentIndex]);
+
   useEffect(() => {
     //@NOTE: 바꿔치기
     if (!swipeRef.current) return;
-    const checkCopiedIndex = currentIndex === 0 || currentIndex === ORIGIN_LIST_LENGTH * 2;
-
     let intervalId: NodeJS.Timer;
 
-    if (checkCopiedIndex) {
-      if (!isTransition) {
-        // @NOTE: 위치 옮기기
-        setPosition((initialIndexOforiginSlide - 1) * -windowWidth);
-        lastPositionXRef.current = (initialIndexOforiginSlide - 1) * -windowWidth;
-        setCurrentIndex(ORIGIN_LIST_LENGTH);
-      }
+    if (!isTransition) {
+      // @NOTE: Transition이 꺼지면 처음으로 옮김
+      setPosition((initialIndexOforiginSlide - 1) * -windowWidth);
+      lastPositionXRef.current = (initialIndexOforiginSlide - 1) * -windowWidth;
+      setCurrentIndex(ORIGIN_LIST_LENGTH);
+      setTimeout(() => {
+        // @NOTE: 바꾸고 0.1초 후에 다시 애니메이션 넣어줌
+        setIsTransition(true);
+      }, 100);
     }
 
     if (!isDragging) {
       // @NOTE: 자동슬라이드
-      intervalId = setInterval(() => {
+      intervalId = setTimeout(() => {
         shiftSlide('right');
-      }, 2000);
+      }, 3000);
     }
 
     return () => clearTimeout(intervalId);
@@ -88,13 +99,6 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
     }
   };
 
-  const temporaryTransition = (time: number) => {
-    setIsTransition(true);
-    setTimeout(() => {
-      setIsTransition(false);
-    }, time);
-  };
-
   const shiftSlide = (direction: string) => {
     switch (direction) {
       case 'right': {
@@ -111,7 +115,6 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
       default:
         setPosition(lastPositionXRef.current);
     }
-    temporaryTransition(300);
   };
 
   const mouseStart = (e: React.MouseEvent<HTMLUListElement>) => {
@@ -157,6 +160,7 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
     dragMove,
     touchMove,
     dragEnd,
+    handleTransitionEnd,
   };
 };
 

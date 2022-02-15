@@ -24,6 +24,7 @@ const Swiper = () => {
     dragMove,
     touchMove,
     dragEnd,
+    handleTransitionEnd,
   } = useSwipe(payload);
 
   return (
@@ -32,6 +33,7 @@ const Swiper = () => {
         <S.SwiperList
           ref={swipeRef}
           isTransition={isTransition}
+          onTransitionEnd={handleTransitionEnd}
           onMouseDown={mouseStart}
           onTouchStart={touchStart}
           onMouseMove={dragMove}
