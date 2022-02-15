@@ -23,8 +23,8 @@ const OptionBox = ({
   setIsChecked,
 }: OptionBoxProps) => {
   const [value, setValue] = useState<string>('');
-  let notice = ['등록된 데이터가 없습니다.'];
-  let refund = ['등록된 데이터가 없습니다.'];
+  const notice = ['등록된 데이터가 없습니다.'];
+  const refund = ['등록된 데이터가 없습니다.'];
 
   return (
     <S.OptionBoxContainer>
