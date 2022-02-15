@@ -136,12 +136,13 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
   return {
     itemList,
     swipeRef,
+    currentIndex,
+    isTransition,
     mouseStart,
     touchStart,
     dragMove,
     touchMove,
     dragEnd,
-    isTransition,
   };
 };
 

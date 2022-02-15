@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { hideScrollbar } from 'styles/commonStyle';
 
 export const SwiperListWrapper = styled.div`
-  width: 100vh;
-  height: 300px;
+  width: 100%;
+  height: 141px;
   overflow-x: auto;
   overflow-y: hidden;
   touch-action: pan-y;
@@ -21,7 +21,11 @@ export const SwiperList = styled.ul<{ isTransition: boolean }>`
 
 export const Image = styled.img<{ width: number }>`
   width: ${({ width }) => `${width}px`};
-  height: 300px;
+  height: 141px;
   user-select: none;
   -webkit-user-drag: none;
+`;
+
+export const WithPagination = styled.div`
+  position: relative;
 `;
