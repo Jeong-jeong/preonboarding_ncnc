@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Pagination } from 'components/domain';
-import { useSwipe, useWindowWidth } from 'hooks';
 import axios from 'axios';
 import { ISwipe } from 'types';
+import { Pagination } from 'components/base';
+import { useSwipe, useWindowWidth } from 'hooks';
 import * as S from './Style';
 
 const Swiper = () => {

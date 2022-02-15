@@ -11,3 +11,5 @@ export { default as Category } from './Category/Category';
 export { default as Option } from './Option/Option';
 export { default as CheckedOption } from './CheckedOption/CheckedOption';
 export { default as ContactTab } from './ContactTab/ContactTab';
+export { default as Pagination } from './Pagination/Pagination';
+export { default as Dropdown } from './Dropdown/Dropdown';

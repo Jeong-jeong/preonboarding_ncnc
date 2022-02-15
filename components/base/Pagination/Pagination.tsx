@@ -8,7 +8,11 @@ interface PaginationProps {
   countCopiedTotal: number;
 }
 
-const Pagination = ({ list, currentIndex, countCopiedTotal }: PaginationProps) => {
+const Pagination = ({
+  list = [],
+  currentIndex = 0,
+  countCopiedTotal = 0,
+}: Partial<PaginationProps>) => {
   return (
     <S.Pagination>
       <Head>
