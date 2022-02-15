@@ -25,14 +25,22 @@ export const SwiperList = styled.ul<SwiperListProps>`
   transition-duration: ${({ isTransition }) => (isTransition ? '300ms' : '0ms')};
   display: flex;
   flex-wrap: nowrap;
+
+  & > li {
+    height: 141px;
+  }
+
+  .swiper-image {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
 `;
 
-export const Image = styled.img<{ width: number }>`
-  width: ${({ width }) => `${width}px`};
-  height: 141px;
-  user-select: none;
-  -webkit-user-drag: none;
-`;
+// export const Image = styled.img<{ width: number }>`
+//   width: ${({ width }) => `${width}px`};
+//   height: 141px;
+
+// `;
 
 export const WithPagination = styled.div`
   position: relative;
