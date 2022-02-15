@@ -7,5 +7,5 @@ export const HeaderContainer = styled.section`
 `;
 
 export const ArticleContainer = styled.section`
-  padding: 50px 0 0 0;
+  padding: 100px 0 0 0;
 `;

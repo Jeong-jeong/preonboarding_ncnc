@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
   }
 `;
 export const ArticleContainer = styled.div`
-  padding: 50px 0 0 0;
+  padding: 100px 0 0 0;
 `;
 export const ItemCount = styled.div`
   ${flexbox({ jc: 'start' })};
