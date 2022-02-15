@@ -10,7 +10,7 @@ interface NavigationItemProps {
 const NavigationItem = ({ name, id, active }: NavigationItemProps) => {
   return (
     <li>
-      <Link href={`#${id}`} passHref>
+      <Link href={`${id}`} passHref>
         <S.NavigationItemWrapper active={active}>{name}</S.NavigationItemWrapper>
       </Link>
     </li>

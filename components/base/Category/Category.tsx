@@ -1,26 +1,21 @@
 import * as S from './Style';
 import Link from 'next/link';
-
-interface mokType {
-  id: number;
-  name: string;
-  discountRate: number;
-  imageUrl: string;
-}
+import { ICategory } from 'types';
 
 interface CategoryProps {
-  data: mokType;
+  category: ICategory;
   size: 43 | 36;
 }
 
-const Category = ({ data, size }: CategoryProps) => {
+const Category = ({ category, size }: CategoryProps) => {
+  const { id, imageUrl, name } = category;
   return (
-    <Link href={`#${data.id}`}>
+    <Link href={`${id}`}>
       <S.Category size={size}>
         <S.ImgWrap size={size}>
-          <img src={data.imageUrl} alt={data.name} />
+          <img src={imageUrl} alt={`${name} 이미지`} />
         </S.ImgWrap>
-        <S.Name size={size}>{data.name}</S.Name>
+        <S.Name size={size}>{name}</S.Name>
       </S.Category>
     </Link>
   );
