@@ -7,7 +7,7 @@ import { IcoArrow, IcoClose } from 'public/images';
 import { MenuBar, NavigationBar } from 'components/base';
 import { ProductionList, CategoryList } from 'components/domain';
 
-import * as S from './Style';
+import * as S from 'pagesStyle/categoriesStyle';
 import Router from 'next/router';
 
 interface CategoryPageProps {
