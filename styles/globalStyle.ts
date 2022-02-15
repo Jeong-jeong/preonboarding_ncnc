@@ -23,7 +23,8 @@ const globalStyle = createGlobalStyle`
 	html, body {
 		color: ${theme.colors.primary};
 		background-color: ${theme.colors.background};
-		font-family: -apple-system, 'Apple SD Gothic Neo', Dotum,'돋움', sans-serif; 
+		font-family: -apple-system, 'Apple SD Gothic Neo', Dotum,'돋움', sans-serif;
+		-webkit-font-smoothing: antialiased;
 	}
 	a {
 		color: inherit;
