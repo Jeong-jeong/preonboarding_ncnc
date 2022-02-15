@@ -10,6 +10,7 @@ export const ItemsPageWrapper = styled.div`
 `;
 
 export const ProductWrapper = styled.div`
+  padding-top: 50px;
   height: 100%;
   border-top: 1px solid ${({ theme }) => theme.colors.background};
   overflow-y: auto;
