@@ -7,6 +7,7 @@ import { MenuBar, OptionBox, BuyButton } from 'components/base';
 import { ProductionItem } from 'components/domain';
 import { IcoArrow } from 'public/images';
 import { useOption } from 'hooks';
+import Router from 'next/router';
 import * as S from './Style';
 
 interface ItemsPageProps {
@@ -21,7 +22,7 @@ const ItemsPage = ({ data }: ItemsPageProps) => {
 
   return (
     <S.ItemsPageWrapper>
-      <MenuBar onClick={() => console.log('clicked')}>
+      <MenuBar onClick={() => Router.back()}>
         <IcoArrow />
       </MenuBar>
       <S.ProductWrapper>
