@@ -1,5 +1,5 @@
-import { Category, Brand, ConItem } from 'types';
+import { ICategory, IBrand, IConItem } from 'types';
 
-export default interface Nested extends Category {
-  conCategory2s: (Brand & { conItems: ConItem[] })[];
+export default interface Nested extends ICategory {
+  conCategory2s: (IBrand & { conItems: IConItem[] })[];
 }

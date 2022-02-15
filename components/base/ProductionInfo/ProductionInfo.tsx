@@ -1,5 +1,5 @@
 import * as S from './Style';
-import { getDiscount } from '../../../utils/fucntions';
+import { getDiscount } from 'utils/fucntions';
 
 export interface ProductionInfoProps {
   brandName?: string;

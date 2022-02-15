@@ -1,8 +1,8 @@
 export default interface Category {
   id: number;
   name: string;
-  discountRate: number;
   imageUrl: string;
+  discountRate?: number;
   createdAt?: string;
   priority?: number;
   info?: string;

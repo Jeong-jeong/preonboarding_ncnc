@@ -2,14 +2,14 @@ import { GetServerSideProps } from 'next';
 import styled from 'styled-components';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import { ConItem } from 'types';
+import { IConItem } from 'types';
 import { getConItem } from 'api';
 
 const ItemsPageWrapper = styled.div``;
 
 interface ItemsPageProps {
   data: {
-    conItem: ConItem;
+    conItem: IConItem;
   };
 }
 
