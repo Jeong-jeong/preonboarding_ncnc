@@ -9,8 +9,9 @@ interface CategoryProps {
 
 const Category = ({ category, size }: CategoryProps) => {
   const { id, imageUrl, name } = category;
+
   return (
-    <Link href={`${id}`}>
+    <Link href={`${'conCategory1Id' in category ? `/brands/${id}` : `${id}`}`} passHref>
       <S.Category size={size}>
         <S.ImgWrap size={size}>
           <img src={imageUrl} alt={`${name} 이미지`} />
