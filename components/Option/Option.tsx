@@ -1,20 +1,40 @@
 import * as S from './Style';
 
-const Option = ({ option }) => {
-  const date = option.expireAt.split('T', 1);
+interface OptionType {
+  expireAt: string;
+  count: number;
+  sellingPrice: number;
+}
+
+interface OptionProps {
+  option: OptionType;
+  setValue: (value: string) => void;
+  toggle: () => void;
+  setIsChecked: (checked: boolean) => void;
+}
+
+const Option = ({ option, setValue, toggle, setIsChecked }: OptionProps) => {
+  const date = option.expireAt.split('T', 1) + ' 까지';
+  const price = option.sellingPrice.toLocaleString() + '원';
+
+  const handleClick = () => {
+    setValue(`${date}/ ${price}`);
+    setIsChecked((checked) => !checked);
+    toggle();
+  };
   return (
-    <S.Option>
+    <S.Option onClick={handleClick}>
       <div>
-        <S.TextWrapper>
+        <div>
           <S.TextGray>유효기간</S.TextGray>
-          <S.TextBlack>{date} 까지</S.TextBlack>
-        </S.TextWrapper>
-        <S.TextWrapper>
+          <S.TextBlack>{date}</S.TextBlack>
+        </div>
+        <div>
           <S.TextGray>할인가</S.TextGray>
-          <S.TextBlack>{option.sellingPrice}원</S.TextBlack>
-        </S.TextWrapper>
+          <S.TextBlack>{price}</S.TextBlack>
+        </div>
       </div>
-      <S.Discount>{option.count.toLocaleString()}%</S.Discount>
+      <S.Discount>{option.count}%</S.Discount>
     </S.Option>
   );
 };

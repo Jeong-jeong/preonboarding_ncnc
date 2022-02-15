@@ -7,10 +7,10 @@ export const Option = styled.div`
   width: 100%;
   padding: 14px 22.5px 14.5px 17px;
   background: ${theme.colors.white};
+  border-bottom: 1px solid ${theme.colors.background};
   ${flexbox({ jc: 'between' })}
+  cursor: pointer;
 `;
-
-export const TextWrapper = styled.div``;
 
 export const TextGray = styled.span`
   display: inline-block;
