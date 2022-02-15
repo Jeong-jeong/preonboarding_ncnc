@@ -1,8 +1,10 @@
-# 목표는 취업이조
+# 목표는 취업이조 2팀
+
+<br>
 
 ## 🚀 정보
 
-- [배포주소 바로가기](https://3week-ncnc-git-main-wanted2.vercel.app/)
+- [배포주소 바로가기](https://3week-ncnc-nrc5qsatr-wanted2.vercel.app/)
 - [노션 바로가기](https://sleepy-oxygen-343.notion.site/41970b5fee2d45aebd7b01de061039eb)
 
 <br>
@@ -12,7 +14,7 @@
 1. 상단 `Code` 버튼을 눌러 레포지토리를 클론 받습니다.
 
 ```
-$ git clone git@github.com:wanted-team2/3week_ncnc.git
+$ git clone https://github.com/wanted-team2/3week_ncnc.git
 ```
 
 2. 패키지를 설치합니다.
@@ -25,6 +27,7 @@ $ yarn install
 
 ```
 $ yarn dev
+$ yarn build
 ```
 
 <br>
@@ -76,12 +79,12 @@ $ yarn dev
 
 <br>
 <br>
-
 <br>
 
 ## 📈 디렉토리 구조
 
 ```
+<<<<<<< HEAD
 .
 ├── README.md
 ├── api
