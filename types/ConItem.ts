@@ -18,7 +18,7 @@ export default interface ConItem {
   options: typeof Option[];
 }
 
-export interface Option {
+export interface IOption {
   expireAt: string;
   count: number;
   sellingPrice: number;

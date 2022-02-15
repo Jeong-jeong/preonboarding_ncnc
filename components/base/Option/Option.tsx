@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import * as S from './Style';
-import { IOption } from 'types';
 import { getDiscount } from 'utils/fucntions';
+import { IOption } from 'types/ConItem';
 
 interface OptionProps {
   option: IOption;
