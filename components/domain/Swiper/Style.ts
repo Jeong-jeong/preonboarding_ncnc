@@ -1,14 +1,6 @@
 import styled from 'styled-components';
 import { hideScrollbar } from 'styles/commonStyle';
 
-interface SwiperListProps {
-  isTransition: boolean;
-}
-
-interface ImageProps {
-  width: number;
-}
-
 export const SwiperListWrapper = styled.div`
   width: 100vh;
   height: 300px;
@@ -20,14 +12,14 @@ export const SwiperListWrapper = styled.div`
   ${hideScrollbar};
 `;
 
-export const SwiperList = styled.ul<SwiperListProps>`
+export const SwiperList = styled.ul<{ isTransition: boolean }>`
   width: 3000px;
   transition-duration: ${({ isTransition }) => (isTransition ? '300ms' : '0ms')};
   display: flex;
   flex-wrap: nowrap;
 `;
 
-export const Image = styled.img<ImageProps>`
+export const Image = styled.img<{ width: number }>`
   width: ${({ width }) => `${width}px`};
   height: 300px;
   user-select: none;
