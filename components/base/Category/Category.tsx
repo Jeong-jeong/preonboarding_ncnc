@@ -13,12 +13,14 @@ const Category = ({ category, size }: CategoryProps) => {
   return (
     <Link href={`${'conCategory1Id' in category ? `/brands/${id}` : `${id}`}`} passHref>
       <S.Category size={size}>
-        <S.ContentsWrapper>
-          <S.ImgWrap size={size}>
-            <img src={imageUrl} alt={`${name} 이미지`} />
-          </S.ImgWrap>
-          <S.Name size={size}>{name}</S.Name>
-        </S.ContentsWrapper>
+        <S.CategoryInner>
+          <S.ContentsWrapper>
+            <S.ImgWrap size={size}>
+              <img src={imageUrl} alt={`${name} 이미지`} />
+            </S.ImgWrap>
+            <S.Name size={size}>{name}</S.Name>
+          </S.ContentsWrapper>
+        </S.CategoryInner>
       </S.Category>
     </Link>
   );
