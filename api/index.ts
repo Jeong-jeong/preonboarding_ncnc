@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { Category, SoonItem } from 'types';
-import { Nested } from '../models/nested';
+import { Category, SoonItem, QaTypes, Qas, Nested } from 'types';
 
 export const getCategories = async () => {
   try {

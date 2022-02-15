@@ -2,18 +2,18 @@ import { GetServerSideProps } from 'next';
 import styled from 'styled-components';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import { Nested } from 'models/nested';
+import { Nested } from 'types';
 import { getNested } from 'api';
 
 const CategoryPageWrapper = styled.div``;
 
-interface HomeProps {
+interface CategoryPageProps {
   data: {
     nested: Nested;
   };
 }
 
-const Home = ({ data }: HomeProps) => {
+const CategoryPage = ({ data }: CategoryPageProps) => {
   const { nested } = data;
 
   return <CategoryPageWrapper>CategoryPageWrapper</CategoryPageWrapper>;
@@ -30,4 +30,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return { props: { data: { nested } } };
 };
 
-export default Home;
+export default CategoryPage;

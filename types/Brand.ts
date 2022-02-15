@@ -1,4 +1,4 @@
-import Category from './category';
+import Category from './Category';
 
 export default interface Brand {
   id: number;

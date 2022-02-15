@@ -1,4 +1,4 @@
-import Brand from './brand';
+import Brand from './Brand';
 
 export default interface SoonItem {
   id: number;
