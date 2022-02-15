@@ -10,6 +10,7 @@ const colors = {
 };
 
 const size = {
+  maxWidth: 672,
   baseHeight: 50,
   borderRadiuss: 5,
 };
