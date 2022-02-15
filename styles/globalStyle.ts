@@ -30,7 +30,7 @@ const globalStyle = createGlobalStyle`
 		overflow-x: hidden;
 	}
 	html {
-		background-color:#DDD;
+		background-color:#DDDDDD;
 
 	}
 	a {
