@@ -5,9 +5,10 @@ import * as S from './Style';
 interface Props {
   children: string;
   checkValue: boolean;
+  toggle: () => void;
 }
 
-const BuyButton = ({ children, checkValue = true }: Props): ReactElement => {
+const BuyButton = ({ children, checkValue = true, toggle }: Props): ReactElement => {
   const [check, setCheck] = useState(false);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const BuyButton = ({ children, checkValue = true }: Props): ReactElement => {
 
   return (
     <>
-      <S.Button checkValue={checkValue} disabled={!check}>
+      <S.Button checkValue={checkValue} disabled={!check} onClick={toggle}>
         {children}
       </S.Button>
     </>
