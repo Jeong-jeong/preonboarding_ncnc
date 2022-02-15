@@ -82,8 +82,8 @@ export const IcoArrowWrapper = styled.span`
 
 export const ContentWrapper = styled.div`
   ${flexbox({ jc: 'between' })};
-  padding: 16px 17px;
-  margin: 10px 0; //
+  padding: 16px ${({ theme }) => `${theme.gap.baseInner}px`};
+  margin: ${({ theme }) => `${theme.gap.baseGap}px`} 0;
   background: ${({ theme }) => theme.colors.white};
 `;
 
