@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Header, CategoryList } from 'components/base';
 import { ProductionList, Swiper } from 'components/domain';
 import { getCategories, getSoonItems } from 'api';
@@ -13,15 +13,14 @@ interface HomeProps {
 }
 
 const Home = ({ data }: HomeProps) => {
+  const [imageState, setImageState] = useState(true);
   const { categories } = data;
   const soonItems = useAxios<ISoonItem[]>(getSoonItems);
 
   return (
     <>
-      <Header />
-      <S.SwiperWrapper>
-        <Swiper />
-      </S.SwiperWrapper>
+      <Header setImageState={setImageState} />
+      <S.SwiperWrapper>{imageState && <Swiper />}</S.SwiperWrapper>
       <S.CategoriesWrapper>
         <CategoryList categories={categories} size={43} />
       </S.CategoriesWrapper>
@@ -29,7 +28,7 @@ const Home = ({ data }: HomeProps) => {
         <S.SubTitle>놓치지 마세요</S.SubTitle>
         <S.ItemTitle>오늘의 땡처리콘!</S.ItemTitle>
         <S.ProductionListWrapper>
-          {soonItems && <ProductionList conItems={soonItems} />}
+          {imageState && soonItems && <ProductionList conItems={soonItems} />}
         </S.ProductionListWrapper>
       </S.ItemListWrapper>
     </>
