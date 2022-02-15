@@ -45,13 +45,12 @@ export const MyPageWrapper = styled.div`
     height: 100%;
   }
   &:not(.hidden) ul {
-    width: 100%;
     transform: none;
   }
 `;
 export const Image = styled.div``;
 
-export const HeaderMenu = styled.ul`
+export const HeaderMenu = styled.ul<{ windowWidth: number }>`
   ${flexbox({})};
   img {
     display: none;
@@ -59,8 +58,8 @@ export const HeaderMenu = styled.ul`
   ${flexbox({ fd: 'column', jc: 'start', ai: 'start' })};
   position: absolute;
   transition: 0.45s;
-  transform: translateX(-280px);
-  width: 280px;
+  transform: ${({ windowWidth }) => `translateX(-${windowWidth}px)`};
+  width: ${({ windowWidth }) => `${windowWidth}px`};
   height: 100vh;
   background: ${({ theme }) => theme.colors.background};
 `;
@@ -84,7 +83,7 @@ export const IcoArrowWrapper = styled.span`
 export const ContentWrapper = styled.div`
   ${flexbox({ jc: 'between' })};
   padding: 16px 17px;
-  margin: 10px 0;
+  margin: 10px 0; //
   background: ${({ theme }) => theme.colors.white};
 `;
 
