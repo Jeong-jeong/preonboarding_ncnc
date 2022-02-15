@@ -26,7 +26,7 @@ const Header = () => {
     <S.HeaderWrapper>
       <S.HeaderInner>
         <S.HamburgerContainer className={'toggle-button'}>
-          <Image src={IcoMenuBar} width="30" height="30" onClick={handleToggleMenu} />
+          <Image src={IcoMenuBar} width={30} height={30} onClick={handleToggleMenu} />
         </S.HamburgerContainer>
         <S.Title>니콘내콘</S.Title>
         <S.Hidden />
@@ -40,7 +40,7 @@ const Header = () => {
             <S.ContentWrapper>
               <S.ContentText>고객센터</S.ContentText>
               <S.IcoArrowWrapper>
-                <Link href="/contacts">
+                <Link href="/contacts" passHref>
                   <a>
                     <IcoArrow />
                   </a>

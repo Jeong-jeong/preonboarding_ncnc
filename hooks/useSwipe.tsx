@@ -44,8 +44,6 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
   }, [swipeRef.current, swipeEndX]);
 
   const handleTransitionEnd = useCallback(() => {
-    console.log(currentIndex);
-
     if (currentIndex === 0 || currentIndex === ORIGIN_LIST_LENGTH * 2) {
       // @NOTE: 현재 인덱스가 복붙한 인덱스일 때 transition을 끔
       setIsTransition(false);
