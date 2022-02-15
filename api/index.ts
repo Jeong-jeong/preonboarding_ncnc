@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Category, SoonItem, QaTypes, Qas, Nested } from 'types';
+import ConItem from '../types/ConItem';
 
 export const getCategories = async () => {
   try {
@@ -43,5 +44,14 @@ export const getQas = async (qaTypeId: number) => {
     return data.qas as Qas[];
   } catch (e) {
     console.log('Qas API 에러');
+  }
+};
+
+export const getConItem = async (itemId: number) => {
+  try {
+    const { data } = await axios.get(`https://api2.ncnc.app/con-items/${itemId}`);
+    return data.conItem as ConItem;
+  } catch (e) {
+    console.log('getConItem API 에러');
   }
 };
