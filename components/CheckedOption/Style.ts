@@ -28,3 +28,14 @@ export const innerBox = styled.div`
 export const Value = styled.h1`
   ${font14(500)}
 `;
+
+export const ImgBox = styled.div`
+  width: 14px;
+  height: 14px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
