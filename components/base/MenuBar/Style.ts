@@ -12,10 +12,24 @@ export const HeaderInner = styled.div`
   margin: 0 auto;
   height: ${({ theme }) => `${theme.size.baseHeight}px`};
   padding: 7px 19px;
-  margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Title = styled.h1`
   ${font15(600)};
+`;
+
+export const SvgWrapper = styled.div`
+  transform: rotate(-90deg);
+  cursor: pointer;
+
+  > svg {
+    width: 20px;
+    height: 20px;
+
+    > path {
+      fill: ${({ theme }) => theme.colors.primary};
+      transform: scale(1.1);
+    }
+  }
 `;

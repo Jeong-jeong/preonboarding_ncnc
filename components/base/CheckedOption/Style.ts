@@ -11,7 +11,7 @@ export const Container = styled.div<isCheckedType>`
   padding: 17px;
   position: absolute;
   left: 0;
-  bottom: ${({ isChecked }) => (isChecked ? 0 : '-50%')};
+  bottom: ${({ isChecked }) => (isChecked ? '80px' : '-50%')};
   background: ${({ theme }) => theme.colors.white};
   border-top: 1px solid ${({ theme }) => theme.colors.background};
 `;
