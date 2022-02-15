@@ -4,7 +4,7 @@ import { font15 } from 'styles/font';
 
 export const HeaderInner = styled.div`
   ${flexbox({ jc: 'between' })};
-  z-index: 3;
+  z-index: ${({ theme }) => theme.zIndex.header};
   width: 100%;
   max-width: ${({ theme }) => `${theme.size.maxWidth}px`};
   position: fixed;

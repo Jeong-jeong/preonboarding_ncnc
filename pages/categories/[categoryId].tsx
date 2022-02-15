@@ -5,7 +5,7 @@ import { ICategory, IConItem, INested } from 'types';
 import { getCategories, getNested } from 'api';
 import { CategoryList, MenuBar, NavigationBar } from 'components/base';
 import { ProductionList } from 'components/domain';
-import { IcoArrow, IcoClose } from '../../public/images';
+import { IcoArrow, IcoClose } from 'public/images';
 
 import * as S from './Style';
 import Router from 'next/router';

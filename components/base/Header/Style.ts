@@ -10,7 +10,7 @@ export const HeaderWrapper = styled.header`
   max-width: ${({ theme }) => `${theme.size.maxWidth}px`};
   width: 100%;
   margin: 0 auto;
-  height: 50px;
+  height: ${({ theme }) => `${theme.size.baseHeight}px`};
   background: ${({ theme }) => theme.colors.white};
 `;
 
@@ -34,7 +34,7 @@ export const Hidden = styled.div`
 export const HamburgerContainer = styled.div``;
 
 export const MyPageWrapper = styled.div`
-  z-index: 1000;
+  z-index: ${({ theme }) => theme.zIndex.mypage};
   position: absolute;
   top: 0;
   left: 0;
@@ -72,8 +72,8 @@ export const MenuWrapper = styled.header`
   left: 0;
   top: 0;
   width: 100%;
-  height: 50px;
-  z-index: 3;
+  height: ${({ theme }) => `${theme.size.baseHeight}px`};
+  z-index: ${({ theme }) => theme.zIndex.menu};
   background: ${({ theme }) => theme.colors.white};
 `;
 

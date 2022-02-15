@@ -15,10 +15,10 @@ export default interface ConItem {
   conCategory2Id: number;
   imageUrl: string;
   conCategory2: Brand;
-  options: Option[];
+  options: typeof Option[];
 }
 
-export default interface Option {
+export interface Option {
   expireAt: string;
   count: number;
   sellingPrice: number;

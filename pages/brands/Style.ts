@@ -17,14 +17,14 @@ export const ArticleContainer = styled.div`
 `;
 export const ItemCount = styled.div`
   ${flexbox({ jc: 'start' })};
-  max-width: 672px;
+  max-width: ${({ theme }) => `${theme.size.maxWidth}px`};
 
-  padding: ${({ theme }) => theme.gap.baseGap}px;
+  padding: ${({ theme }) => `${theme.gap.baseGap}px`};
   width: 100%;
   height: 40px;
   background: ${({ theme }) => theme.colors.white};
   position: fixed;
-  top: 50px;
+  top: ${({ theme }) => `${theme.size.baseHeight}px`};
   border-top: 1px solid ${({ theme }) => theme.colors.background};
-  z-index: 1;
+  z-index: ${({ theme }) => theme.zIndex.brand};
 `;

@@ -5,7 +5,7 @@ import { IBrand, IConItem, INested } from 'types';
 import { MenuBar } from 'components/base';
 import { ProductionList } from 'components/domain';
 import * as S from './Style';
-import { IcoArrow, IcoClose } from '../../public/images';
+import { IcoArrow } from 'public/images';
 import Router from 'next/router';
 import React from 'react';
 
