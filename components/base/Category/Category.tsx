@@ -1,7 +1,6 @@
 import * as S from './Style';
 import Link from 'next/link';
 import { ICategory } from 'types';
-import { useRouter } from 'next/router';
 
 interface CategoryProps {
   category: ICategory;

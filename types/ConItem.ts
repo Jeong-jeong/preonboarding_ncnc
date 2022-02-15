@@ -1,11 +1,5 @@
 import Brand from './Brand';
 
-export interface IOption {
-  expireAt: string;
-  count: number;
-  sellingPrice: number;
-}
-
 export default interface ConItem {
   id: number;
   name: string;
@@ -21,5 +15,11 @@ export default interface ConItem {
   conCategory2Id: number;
   imageUrl: string;
   conCategory2: Brand;
-  options: IOption[];
+  options: Options[];
+}
+
+export interface Options {
+  expireAt: string;
+  count: number;
+  sellingPrice: number;
 }

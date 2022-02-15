@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction } from 'react';
 import * as S from './Style';
+import { Options } from 'types/ConItem';
 import { getDiscount } from 'utils/fucntions';
-import { IOption } from 'types/ConItem';
 
 interface OptionProps {
-  option: IOption;
+  option: Options;
   originalPrice: number;
   setValue: Dispatch<SetStateAction<string>>;
   toggle: () => void;

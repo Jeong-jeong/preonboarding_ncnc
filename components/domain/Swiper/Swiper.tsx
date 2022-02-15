@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Pagination } from 'components/domain';
 import { useSwipe, useWindowWidth } from 'hooks';
 import axios from 'axios';
@@ -64,7 +65,13 @@ const Swiper = () => {
           {React.Children.toArray(
             itemList.map((src: string) => (
               <li>
-                <S.Image src={src} width={windowWidth} />
+                <Image
+                  className="swiper-image"
+                  src={src}
+                  width={windowWidth}
+                  height={141}
+                  priority
+                />
               </li>
             )),
           )}

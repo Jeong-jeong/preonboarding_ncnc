@@ -1,10 +1,10 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 import * as S from './Style';
 import { Option, CheckedOption } from 'components/base';
-import { IOption } from '../../../types/ConItem';
+import { Options } from 'types/ConItem';
 
 interface OptionBoxProps {
-  options: IOption[];
+  options: Options[];
   warning: string;
   originalPrice: number;
   toggle: () => void;
@@ -23,14 +23,14 @@ const OptionBox = ({
   setIsChecked,
 }: OptionBoxProps) => {
   const [value, setValue] = useState<string>('');
-  const notice = ['등록된 데이터가 없습니다.'];
-  const refund = ['등록된 데이터가 없습니다.'];
+  let notice = ['등록된 데이터가 없습니다.'];
+  let refund = ['등록된 데이터가 없습니다.'];
 
-  // if (warning) {
-  //   [notice, refund] = warning.split('[환불규정]');
-  //   notice = notice.split('\n').filter((el) => el[0] == ' ');
-  //   refund = refund.split('\n');
-  // }
+  if (warning) {
+    [notice, refund] = warning.split('[환불규정]');
+    notice = notice.split('\n').filter((el) => el[0] == ' ');
+    refund = refund.split('\n');
+  }
 
   return (
     <S.OptionBoxContainer>

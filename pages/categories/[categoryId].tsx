@@ -3,9 +3,9 @@ import { GetServerSideProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { ICategory, IConItem, INested } from 'types';
 import { getCategories, getNested } from 'api';
-import { CategoryList, MenuBar, NavigationBar } from 'components/base';
-import { ProductionList } from 'components/domain';
 import { IcoArrow, IcoClose } from 'public/images';
+import { MenuBar, NavigationBar } from 'components/base';
+import { ProductionList, CategoryList } from 'components/domain';
 
 import * as S from './Style';
 import Router from 'next/router';
