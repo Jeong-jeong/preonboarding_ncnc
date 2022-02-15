@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ItemsPageWrapper = styled.div`
-  max-width: 672px;
+  max-width: ${({ theme }) => theme.size.maxWidth}px;
   height: 100vh;
   background: #fff;
   margin: 0 auto;

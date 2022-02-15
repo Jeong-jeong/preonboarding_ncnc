@@ -1,32 +1,24 @@
 import * as S from './Style';
 import { ProductionItem } from '../index';
 import React from 'react';
+import { IConItem, ISoonItem } from 'types';
 
-const dummy = [
-  {
-    brandName: '111',
-    productionName: '큰거',
-    originalPrice: 100000,
-    minSellPrice: 5000,
-    size: 'big',
-  },
-  { brandName: '111', productionName: '작은거', originalPrice: 100000, minSellPrice: 5000 },
-  { productionName: '없는 거', originalPrice: 100000, minSellPrice: 5000 },
-];
+interface ProductionListProps {
+  conItems: IConItem[] | ISoonItem[];
+}
 
-const ProductionList = () => {
+const ProductionList = ({ conItems }: ProductionListProps) => {
   return (
     <S.ProductionListWrapper>
       {React.Children.toArray(
-        dummy.map(({ brandName, productionName, originalPrice, minSellPrice, size }) => (
+        conItems.map(({ name, id, originalPrice, minSellingPrice, imageUrl, conCategory2 }) => (
           <ProductionItem
-            productionId={1}
-            productionName={productionName}
+            productionId={id}
+            productionName={name}
             originalPrice={originalPrice}
-            minSellingPrice={minSellPrice}
-            brandName={brandName}
-            imageUrl={''}
-            size={size as 'big' | 'small' | undefined}
+            minSellingPrice={minSellingPrice}
+            imageUrl={imageUrl}
+            brandName={conCategory2.name}
           />
         )),
       )}

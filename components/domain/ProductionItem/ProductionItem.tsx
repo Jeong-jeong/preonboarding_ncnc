@@ -17,7 +17,7 @@ const ProductionItem = ({
 }: ProductionItemProps) => {
   return (
     <li>
-      <Link href={`#${productionId}`} passHref>
+      <Link href={`/items/${productionId}`} passHref>
         <S.ProductionItemWrapper>
           <ProductionImage imageUrl={imageUrl} size={size} />
           <ProductionInfo
