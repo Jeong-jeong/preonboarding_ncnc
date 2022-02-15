@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { font14 } from '../../styles/font';
-import { flexbox } from '../../styles/commonStyle';
+import { font14 } from 'styles/font';
+import { flexbox } from 'styles/commonStyle';
 
 export const BrandsPageWrapper = styled.div`
   > * {
@@ -17,7 +17,7 @@ export const ArticleContainer = styled.div`
 `;
 export const ItemCount = styled.div`
   ${flexbox({ jc: 'start' })};
-  padding: 10px;
+  padding: ${({ theme }) => theme.gap.baseGap};
   width: 100%;
   height: 40px;
   background: ${({ theme }) => theme.colors.white};
