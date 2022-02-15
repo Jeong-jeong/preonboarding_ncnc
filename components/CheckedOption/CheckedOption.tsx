@@ -2,7 +2,7 @@ import * as S from './Style';
 import { IcoPencil } from 'public/images';
 
 interface CheckedOptionProps {
-  value: string;
+  value: string | null;
   isChecked: boolean;
   toggle: () => void;
 }

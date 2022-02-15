@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Dispatch, SetStateAction } from 'react';
 import * as S from './Style';
 import { Option, CheckedOption } from 'components';
 
@@ -13,11 +13,11 @@ interface OptionBoxProps {
   toggle: () => void;
   isActive: boolean;
   isChecked: boolean;
-  setIsChecked: () => void;
+  setIsChecked: Dispatch<SetStateAction<boolean>>;
 }
 
 const OptionBox = ({ options, toggle, isActive, isChecked, setIsChecked }: OptionBoxProps) => {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState<string>('');
 
   return (
     <S.OptionBoxContainer>

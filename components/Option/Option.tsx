@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import * as S from './Style';
 
 interface OptionType {
@@ -8,17 +9,18 @@ interface OptionType {
 
 interface OptionProps {
   option: OptionType;
-  setValue: (value: string) => void;
+  setValue: Dispatch<SetStateAction<string>>;
   toggle: () => void;
-  setIsChecked: (checked: boolean) => void;
+  setIsChecked: Dispatch<SetStateAction<boolean>>;
 }
 
 const Option = ({ option, setValue, toggle, setIsChecked }: OptionProps) => {
   const date = option.expireAt.split('T', 1) + ' 까지';
   const price = option.sellingPrice.toLocaleString() + '원';
+  const value = `${date}/ ${price}`;
 
   const handleClick = () => {
-    setValue(`${date}/ ${price}`);
+    setValue(value);
     setIsChecked((checked) => !checked);
     toggle();
   };
