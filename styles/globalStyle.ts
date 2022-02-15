@@ -23,7 +23,11 @@ const globalStyle = createGlobalStyle`
 	html, body {
 		color: ${theme.colors.primary};
 		background-color: ${theme.colors.background};
-		font-family: -apple-system, 'Apple SD Gothic Neo', Dotum,'돋움', sans-serif; 
+		font-family: -apple-system, 'Apple SD Gothic Neo', Dotum,'돋움', sans-serif;
+		-webkit-font-smoothing: antialiased;
+		max-width: ${theme.size.maxWidth}px;
+		margin: 0 auto;
+		overflow-x: hidden;
 	}
 	a {
 		color: inherit;
@@ -44,6 +48,7 @@ const globalStyle = createGlobalStyle`
 		cursor: pointer;
 	}	
 	p {
+    white-space: pre-line;
 		margin-block-start: 1em;
     margin-block-end: 1em;
 	}

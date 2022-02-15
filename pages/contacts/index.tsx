@@ -1,13 +1,16 @@
-import { GetStaticProps } from 'next';
-import styled from 'styled-components';
 import React from 'react';
+import { GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import { getFAQTypes, getQas } from 'api';
-import { Qas } from '../../types';
-import QaType from '../../types/QaType';
+import { IQas } from 'types';
+import QaType from 'types/QaType';
+import { ContactTab, MenuBar } from 'components/base';
+import { Gapbox } from 'styles/commonCompo';
+import { IcoClose } from 'public/images';
+import * as S from './Style';
 
-const ContactPageWrapper = styled.div``;
-
-type QaTypeAnswer = { types: QaType; qas: Qas[] };
+export type QaTypeAnswer = { types: QaType; qas: IQas[] };
+export type QasListType = QaTypeAnswer['qas'];
 
 interface ContactPageProps {
   data: {
@@ -16,8 +19,27 @@ interface ContactPageProps {
 }
 
 const ContactPage = ({ data }: ContactPageProps) => {
+  const router = useRouter();
   const { qaTypeAnswer } = data;
-  return <ContactPageWrapper>CategoryPageWrapper</ContactPageWrapper>;
+
+  const handleClose = () => {
+    router.back();
+  };
+
+  return (
+    <S.ContactPageWrapper>
+      <MenuBar img={IcoClose} onClick={handleClose}>
+        고객 센터
+      </MenuBar>
+      <S.ContactInfos>
+        <h2>상담시간 안내</h2>
+        <p>평일 10:00 ~ 18:00</p>
+        <p className="putGray">점심시간 12:30 - 13:30 / 토 ・ 일 ・ 공휴일 휴무</p>
+      </S.ContactInfos>
+      <Gapbox />
+      <ContactTab dataList={qaTypeAnswer} />
+    </S.ContactPageWrapper>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async () => {

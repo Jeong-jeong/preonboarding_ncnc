@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/Link';
 import * as S from './Style';
 import { MenuBar } from 'components/base';
-
+import { useWindowWidth } from 'hooks';
 import { IcoMenuBar, IcoClose, IcoArrow } from 'public/images';
 
 const Header = () => {
@@ -19,22 +20,34 @@ const Header = () => {
     setSlideToggle(!slideToggle);
   };
 
+  const windowWidth = useWindowWidth();
+
   return (
     <S.HeaderWrapper>
       <S.HeaderInner>
         <S.HamburgerContainer className={'toggle-button'}>
-          <Image src={IcoMenuBar} width="30" height="30" onClick={handleToggleMenu} />
+          <Image src={IcoMenuBar} width={30} height={30} onClick={handleToggleMenu} />
         </S.HamburgerContainer>
         <S.Title>니콘내콘</S.Title>
         <S.Hidden />
       </S.HeaderInner>
       <S.MyPageWrapper className={`toggle-button ${slideToggle ? 'show' : 'hidden'}`}>
-        <S.HeaderMenu>
+        <S.HeaderMenu windowWidth={windowWidth}>
           <S.MenuWrapper>
             <MenuBar img={IcoClose} onClick={handleCloseMenu}>
               마이페이지
             </MenuBar>
-            {/* <div>작성 공간</div> */}
+            <S.ContentWrapper>
+              <S.ContentText>고객센터</S.ContentText>
+              <S.IcoArrowWrapper>
+                <Link href="/contacts" passHref>
+                  <a>
+                    <IcoArrow />
+                  </a>
+                </Link>
+              </S.IcoArrowWrapper>
+            </S.ContentWrapper>
+            <S.BlankBox />
           </S.MenuWrapper>
         </S.HeaderMenu>
       </S.MyPageWrapper>

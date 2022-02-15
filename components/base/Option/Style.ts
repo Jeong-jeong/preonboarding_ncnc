@@ -5,6 +5,7 @@ import { font12, font16 } from 'styles/font';
 
 export const Option = styled.div`
   width: 100%;
+  height: 61px;
   padding: 14px 22.5px 14.5px 17px;
   background: ${theme.colors.white};
   border-bottom: 1px solid ${theme.colors.background};
