@@ -9,7 +9,7 @@ interface isActiveType {
 
 export const OptionBoxContainer = styled.div`
   width: 100%;
-  height: calc(100% - 180px);
+  height: calc(100vh - 260px);
   min-height: 513px;
   position: relative;
   overflow: hidden;
@@ -60,7 +60,7 @@ export const OptionBox = styled.div<isActiveType>`
   background: ${theme.colors.background};
   position: absolute;
   left: 0;
-  bottom: ${({ isActive }) => (isActive ? '80px' : '-50%')};
+  bottom: ${({ isActive }) => (isActive ? 0 : '-50%')};
   transition: 0.3s ease;
 `;
 

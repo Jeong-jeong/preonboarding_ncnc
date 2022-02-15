@@ -4,13 +4,12 @@ export const ItemsPageWrapper = styled.div`
   max-width: ${({ theme }) => theme.size.maxWidth}px;
   height: 100vh;
   background: #fff;
-  margin: 0 auto;
   position: relative;
   overflow: hidden;
+  padding-top: 50px;
 `;
 
 export const ProductWrapper = styled.div`
-  padding-top: 50px;
   height: 100%;
   border-top: 1px solid ${({ theme }) => theme.colors.background};
   overflow-y: auto;
