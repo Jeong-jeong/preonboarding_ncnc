@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header, CategoryList } from 'components/base';
-import { ProductionList, Swiper } from 'components/domain';
+import { Header } from 'components/base';
+import { ProductionList, Swiper, CategoryList } from 'components/domain';
 import { getCategories, getSoonItems } from 'api';
 import { useAxios } from 'hooks';
 import { ISoonItem, ICategory } from 'types';
