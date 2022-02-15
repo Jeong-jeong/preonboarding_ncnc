@@ -1,24 +1,20 @@
 import React from 'react';
 import * as S from './Style';
-import { Category } from '/components/base';
-
-interface mokType {
-  id: number;
-  name: string;
-  discountRate: number;
-  imageUrl: string;
-}
+import { Category } from 'components/base';
+import { ICategory } from 'types';
 
 interface CategoryListProps {
-  data: mokType[];
+  categories: ICategory[];
   size: 43 | 36;
 }
 
-const CategoryList = ({ data, size }: CategoryListProps) => {
+const CategoryList = ({ categories, size }: CategoryListProps) => {
   return (
     <S.CategoryContainer>
-      {data &&
-        React.Children.toArray(data.map((data) => <Category data={data} size={size}></Category>))}
+      {categories &&
+        React.Children.toArray(
+          categories.map((category) => <Category category={category} size={size} />),
+        )}
     </S.CategoryContainer>
   );
 };
