@@ -26,3 +26,11 @@ export const font16 = (weight: Weight) => css`
   line-height: 1.1875;
   font-weight: ${weight};
 `;
+
+export const fontRoboto = (fs = 80, lh = 1.175, color = 'white') => css`
+  font-family: 'Roboto', sans-serif;
+
+  font-size: ${fs}px;
+  line-height: ${lh};
+  color: ${color};
+`;
