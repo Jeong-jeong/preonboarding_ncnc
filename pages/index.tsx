@@ -4,7 +4,7 @@ import { ProductionList, Swiper, CategoryList } from 'components/domain';
 import { getCategories, getSoonItems } from 'api';
 import { useAxios } from 'hooks';
 import { ISoonItem, ICategory } from 'types';
-import * as S from './Style';
+import * as S from 'pagesStyle/homeStyle';
 
 interface HomeProps {
   data: {

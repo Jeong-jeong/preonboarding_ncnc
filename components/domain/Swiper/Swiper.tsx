@@ -9,12 +9,10 @@ import * as S from './Style';
 const Swiper = () => {
   const windowWidth = useWindowWidth();
 
-  const [isLoading, setLoading] = useState(true);
   const [fetchData, setFetchData] = useState<ISwipe | any>({});
 
   const getSwipeList = async () => {
     try {
-      setLoading(true);
       const { data } = await axios.get('../mock/slideList.json');
       setFetchData(data);
     } catch (e) {
@@ -22,7 +20,6 @@ const Swiper = () => {
         throw new Error(e.message);
       }
     }
-    setLoading(false);
   };
 
   useEffect(() => {

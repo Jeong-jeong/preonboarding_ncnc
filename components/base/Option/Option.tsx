@@ -20,7 +20,7 @@ const Option = ({ option, originalPrice, setValue, toggle, setIsChecked }: Optio
     date = `${expireAt.replace('-', '.').replace('-', '.')} 까지`;
   } else {
     const expireAt = option.expireAt.substring(4, 15).split(' ');
-    const month = Month[expireAt[0]];
+    const month = Month[expireAt[0] as keyof typeof Month];
     date = `${expireAt[2]}.${month}.${expireAt[1]} 까지`;
   }
 
