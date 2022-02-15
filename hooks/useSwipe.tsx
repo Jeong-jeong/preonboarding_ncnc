@@ -46,15 +46,28 @@ const useSwipe = <Type extends unknown>(payload: useSwipeProps<Type>) => {
   useEffect(() => {
     //@NOTE: 바꿔치기
     if (!swipeRef.current) return;
+    const checkCopiedIndex = currentIndex === 0 || currentIndex === ORIGIN_LIST_LENGTH * 2;
 
-    if (currentIndex === 0 || currentIndex === ORIGIN_LIST_LENGTH * 2) {
+    let intervalId: NodeJS.Timer;
+
+    if (checkCopiedIndex) {
       if (!isTransition) {
+        // @NOTE: 위치 옮기기
         setPosition((initialIndexOforiginSlide - 1) * -windowWidth);
         lastPositionXRef.current = (initialIndexOforiginSlide - 1) * -windowWidth;
         setCurrentIndex(ORIGIN_LIST_LENGTH);
       }
     }
-  }, [currentIndex, isTransition]);
+
+    if (!isDragging) {
+      // @NOTE: 자동슬라이드
+      intervalId = setInterval(() => {
+        shiftSlide('right');
+      }, 2000);
+    }
+
+    return () => clearTimeout(intervalId);
+  }, [currentIndex, isTransition, isDragging]);
 
   useEffect(() => {
     if (!isDragging && draggedX !== 0) {

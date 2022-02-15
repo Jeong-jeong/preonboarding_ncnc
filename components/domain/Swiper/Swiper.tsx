@@ -1,5 +1,4 @@
 import React from 'react';
-// import Image from 'next/image';
 import { Pagination } from 'components/domain';
 import { useSwipe, useWindowWidth } from 'hooks';
 import * as S from './Style';
