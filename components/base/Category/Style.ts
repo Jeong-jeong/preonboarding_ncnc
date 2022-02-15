@@ -13,9 +13,8 @@ export const Category = styled.a`
   padding: 1px;
 `;
 
-export const CategoryInner = styled.div<SizeProps>`
-  padding: ${({ size, theme }) =>
-    size === 43 ? '11px 0 14px' : `${theme.gap.baseInner}px 0 13px`};
+export const CategoryInner = styled.div`
+  padding: ${({ theme }) => `${theme.gap.baseGap}px 0 13px`};
   background: ${({ theme }) => `${theme.colors.white}`};
   border-radius: ${({ theme }) => `${theme.size.borderRadius}px`};
   cursor: pointer;
