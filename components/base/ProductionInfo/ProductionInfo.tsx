@@ -20,8 +20,8 @@ const ProductionInfo = ({
       <S.ProductionName>{productionName}</S.ProductionName>
       <S.PriceTab>
         <S.Discount>{getDiscount(originalPrice, minSellingPrice)}%</S.Discount>
-        <S.OriginalPrice>{minSellingPrice}원</S.OriginalPrice>
-        <S.MinPrice>{originalPrice}원</S.MinPrice>
+        <S.OriginalPrice>{minSellingPrice.toLocaleString()}원</S.OriginalPrice>
+        <S.MinPrice>{originalPrice.toLocaleString()}원</S.MinPrice>
       </S.PriceTab>
     </S.ProductionInfoWrapper>
   );
