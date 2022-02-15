@@ -7,13 +7,25 @@ export interface SizeProps {
 }
 
 export const Category = styled.a<SizeProps>`
-  width: 112px;
+  float: left;
+  width: 32.333%;
+  min-width: 112px;
   height: 94px;
+  margin: 1px;
   padding: ${({ size }) => (size === 43 ? '11px 0 14px' : '17px 0 13px')};
   background: ${({ theme }) => `${theme.colors.white}`};
   border-radius: ${({ theme }) => `${theme.size.borderRadiuss}px`};
-  ${flexbox({ fd: 'column', jc: 'between' })};
   cursor: pointer;
+`;
+
+export const ContentsWrapper = styled.div`
+  height: 100%;
+  ${flexbox({ fd: 'column', jc: 'between' })};
+  transition: 0.6s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const ImgWrap = styled.div<SizeProps>`
@@ -30,5 +42,5 @@ export const ImgWrap = styled.div<SizeProps>`
 
 export const Name = styled.h1<SizeProps>`
   ${font12(500)};
-  margin-top: ${({ size }) => (size === 43 ? '14px' : '15px')};
+  text-align: center;
 `;

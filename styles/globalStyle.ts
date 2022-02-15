@@ -45,6 +45,7 @@ const globalStyle = createGlobalStyle`
 		cursor: pointer;
 	}	
 	p {
+    white-space: pre-line;
 		margin-block-start: 1em;
     margin-block-end: 1em;
 	}

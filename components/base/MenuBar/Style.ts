@@ -4,13 +4,19 @@ import { font15 } from 'styles/font';
 
 export const HeaderInner = styled.div`
   ${flexbox({ jc: 'between' })};
+  width: 100%;
   max-width: 1440px;
-  height: 50px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin: 0 auto;
+  height: ${({ theme }) => `${theme.size.baseHeight}px`};
   padding: 7px 19px;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Title = styled.h1`
-  ${font15(600)}
+  ${font15(600)};
 `;
 
 export const SvgWrapper = styled.div`
