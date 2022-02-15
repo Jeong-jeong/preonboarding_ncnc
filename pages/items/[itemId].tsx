@@ -3,8 +3,8 @@ import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
 import { IConItem } from 'types';
 import { getConItem } from 'api';
-import { MenuBar, OptionBox, BuyButton } from 'components/base';
-import { ProductionItem } from 'components/domain';
+import { MenuBar, BuyButton } from 'components/base';
+import { ProductionItem, OptionBox } from 'components/domain';
 import { IcoArrow } from 'public/images';
 import { useOption } from 'hooks';
 import Router from 'next/router';
@@ -37,15 +37,15 @@ const ItemsPage = ({ data }: ItemsPageProps) => {
           brandName={conCategory2.name}
           productionId={id}
         />
-        <OptionBox
-          options={options}
-          warning={warning}
-          originalPrice={originalPrice}
-          toggle={toggle}
-          isActive={isActive}
-          isChecked={isChecked}
-          setIsChecked={setIsChecked}
-        />
+        {/*<OptionBox*/}
+        {/*  options={options}*/}
+        {/*  warning={warning}*/}
+        {/*  originalPrice={originalPrice}*/}
+        {/*  toggle={toggle}*/}
+        {/*  isActive={isActive}*/}
+        {/*  isChecked={isChecked}*/}
+        {/*  setIsChecked={setIsChecked}*/}
+        {/*/>*/}
       </S.ProductWrapper>
       <BuyButton checkValue={!isActive} toggle={toggle}>
         {isActive ? '구매하기' : isChecked ? '구매하기' : '옵션 선택하기'}
