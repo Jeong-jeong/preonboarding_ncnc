@@ -13,8 +13,8 @@ const Category = ({ category, size }: CategoryProps) => {
 
   return (
     <Link href={`${'conCategory1Id' in category ? `/brands/${id}` : `/categories/${id}`}`} passHref>
-      <S.Category size={size}>
-        <S.CategoryInner>
+      <S.Category>
+        <S.CategoryInner size={size}>
           <S.ContentsWrapper>
             <S.ImgWrap size={size}>
               <img src={imageUrl} alt={`${name} 이미지`} />

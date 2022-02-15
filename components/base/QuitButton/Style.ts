@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { theme } from 'styles';
 import { font16 } from 'styles/font';
 
 export const Button = styled.button`
   width: 100%;
   max-width: 341px;
-  height: 50px;
+  height: ${({ theme }) => `${theme.size.baseHeight}px`};
   ${font16(500)};
   box-sizing: border-box;
   color: ${({ theme }) => theme.colors.gray};

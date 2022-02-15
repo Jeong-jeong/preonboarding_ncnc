@@ -6,8 +6,8 @@ export const NavigationBarWrapper = styled.div`
   max-width: ${({ theme }) => `${theme.size.maxWidth}px`};
   background: ${({ theme }) => theme.colors.white};
   position: fixed;
-  top: 50px;
-  z-index: 2;
+  top: ${({ theme }) => `${theme.size.baseHeight}px`};
+  z-index: ${({ theme }) => theme.zIndex.navigationBar};
 `;
 
 export const SlideWrapper = styled.ul`

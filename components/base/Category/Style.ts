@@ -6,17 +6,18 @@ export interface SizeProps {
   size: number;
 }
 
-export const Category = styled.a<SizeProps>`
+export const Category = styled.a`
   float: left;
   width: calc(100% / 3);
   min-width: 112px;
   padding: 1px;
 `;
 
-export const CategoryInner = styled.div`
-  padding: ${({ size }) => (size === 43 ? '11px 0 14px' : '17px 0 13px')};
+export const CategoryInner = styled.div<SizeProps>`
+  padding: ${({ size, theme }) =>
+    size === 43 ? '11px 0 14px' : `${theme.gap.baseInner}px 0 13px`};
   background: ${({ theme }) => `${theme.colors.white}`};
-  border-radius: ${({ theme }) => `${theme.size.borderRadiuss}px`};
+  border-radius: ${({ theme }) => `${theme.size.borderRadius}px`};
   cursor: pointer;
 `;
 
@@ -38,7 +39,6 @@ export const ImgWrap = styled.div<SizeProps>`
     width: 100%;
     height: 100%;
     object-fit: contain;
-		event
   }
 `;
 

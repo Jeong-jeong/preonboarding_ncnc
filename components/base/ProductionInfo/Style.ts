@@ -22,11 +22,11 @@ export const PriceTab = styled.div`
 
 export const Discount = styled.span`
   color: ${({ theme }) => theme.colors.red};
-  margin-right: 10px;
+  margin-right: ${({ theme }) => `${theme.gap.baseGap}px`};
 `;
 
 export const OriginalPrice = styled.span`
-  margin-right: 10px;
+  margin-right: ${({ theme }) => `${theme.gap.baseGap}px`};
 `;
 
 export const MinPrice = styled.span`

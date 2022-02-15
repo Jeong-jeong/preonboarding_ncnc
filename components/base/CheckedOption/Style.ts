@@ -8,7 +8,7 @@ interface isCheckedType {
 
 export const Container = styled.div<isCheckedType>`
   width: 100%;
-  padding: 17px;
+  padding: ${({ theme }) => `${theme.gap.baseInner}px`};
   position: absolute;
   left: 0;
   bottom: ${({ isChecked }) => (isChecked ? 0 : '-50%')};
@@ -19,7 +19,7 @@ export const Container = styled.div<isCheckedType>`
 export const innerBox = styled.div`
   width: 100%;
   height: 30px;
-  padding: 0 8px 0 17px;
+  padding: ${({ theme }) => `0 8px 0 ${theme.gap.baseInner}px`};
   ${flexbox({ jc: 'between' })};
   background: ${({ theme }) => theme.colors.background};
   cursor: pointer;

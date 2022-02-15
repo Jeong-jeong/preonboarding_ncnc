@@ -2,10 +2,6 @@ import styled from 'styled-components';
 import { font15 } from 'styles/font';
 import { flexbox } from 'styles/commonStyle';
 
-interface IcoArrowProps {
-  isToggle: boolean;
-}
-
 export const Item = styled.button`
   overflow: hidden;
   ${flexbox({ jc: 'between', ai: 'start' })};
@@ -22,7 +18,7 @@ export const Item = styled.button`
   }
 `;
 
-export const IcoArrowWrapper = styled.span<IcoArrowProps>`
+export const IcoArrowWrapper = styled.span<{ isToggle: boolean }>`
   .ico-arrow {
     transform: ${({ isToggle }) => (isToggle ? `rotate(0deg)` : `rotate(180deg)`)};
   }

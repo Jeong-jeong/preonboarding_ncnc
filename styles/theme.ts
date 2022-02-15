@@ -12,7 +12,7 @@ const colors = {
 const size = {
   maxWidth: 672,
   baseHeight: 50,
-  borderRadiuss: 5,
+  borderRadius: 5,
 };
 
 const gap = {
@@ -20,10 +20,19 @@ const gap = {
   baseInner: 17,
 };
 
+const zIndex = {
+  mypage: 4,
+  header: 3,
+  menu: 3,
+  navigationBar: 2,
+  brand: 1,
+};
+
 const theme = {
   colors,
   size,
   gap,
+  zIndex,
 };
 
 export type Theme = typeof theme;
