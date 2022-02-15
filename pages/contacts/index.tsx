@@ -7,7 +7,7 @@ import QaType from 'types/QaType';
 import { ContactTab, MenuBar } from 'components/base';
 import { Gapbox } from 'styles/commonCompo';
 import { IcoClose } from 'public/images';
-import * as S from './Style';
+import * as S from 'pagesStyle/contactStyle';
 
 export type QaTypeAnswer = { types: QaType; qas: IQas[] };
 export type QasListType = QaTypeAnswer['qas'];

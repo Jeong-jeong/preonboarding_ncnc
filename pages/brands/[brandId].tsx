@@ -4,7 +4,7 @@ import { ParsedUrlQuery } from 'querystring';
 import { IBrand, IConItem, INested } from 'types';
 import { MenuBar } from 'components/base';
 import { ProductionList } from 'components/domain';
-import * as S from './Style';
+import * as S from 'pagesStyle/brandsStyle';
 import { IcoArrow } from 'public/images';
 import Router from 'next/router';
 import React from 'react';

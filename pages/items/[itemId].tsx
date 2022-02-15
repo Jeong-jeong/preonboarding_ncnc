@@ -8,7 +8,7 @@ import { ProductionItem, OptionBox } from 'components/domain';
 import { IcoArrow } from 'public/images';
 import { useOption } from 'hooks';
 import Router from 'next/router';
-import * as S from './Style';
+import * as S from 'pagesStyle/itemStyle';
 
 interface ItemsPageProps {
   data: {
