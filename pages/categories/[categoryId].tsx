@@ -2,8 +2,8 @@ import { GetServerSideProps } from 'next';
 import styled from 'styled-components';
 import React from 'react';
 import { ParsedUrlQuery } from 'querystring';
-import { Nested } from '../../models/nested';
-import { getNested } from '../../api';
+import { Nested } from 'models/nested';
+import { getNested } from 'api';
 
 const CategoryPageWrapper = styled.div``;
 

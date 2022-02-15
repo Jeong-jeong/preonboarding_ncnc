@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { getCategories, getSoonItems } from '../api';
+import { getCategories, getSoonItems } from 'api';
 import { useAxios } from 'hooks';
 import { SoonItem, Category } from 'types';
 
