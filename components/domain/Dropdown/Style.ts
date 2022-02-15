@@ -7,10 +7,11 @@ interface IcoArrowProps {
 }
 
 export const Item = styled.button`
+  overflow: hidden;
   ${flexbox({ jc: 'between', ai: 'start' })};
   width: 100%;
   padding: ${({ theme }) => `${theme.gap.baseInner}px`};
-  margin-bottom: 1px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.background};
   background-color: ${({ theme }) => theme.colors.white};
   ${font15(500)};
   text-align: start;
@@ -33,7 +34,9 @@ export const IcoQuestion = styled.span`
 `;
 
 export const Dropbox = styled.div`
+  overflow: hidden;
   padding: ${({ theme }) => `${theme.gap.baseInner}px`};
+  background-color: ${({ theme }) => theme.colors.background};
   ${font15(400)};
   line-height: 1.4;
 `;
