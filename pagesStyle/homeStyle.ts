@@ -7,8 +7,7 @@ export const SwiperWrapper = styled.div`
 `;
 
 export const CategoriesWrapper = styled.div`
-  margin-top: 15.94px;
-  margin-bottom: 28.9px;
+  margin: 15.94px 17px 28.9px 17px;
 `;
 
 export const ItemListWrapper = styled.div``;

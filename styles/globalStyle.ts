@@ -29,6 +29,10 @@ const globalStyle = createGlobalStyle`
 		margin: 0 auto;
 		overflow-x: hidden;
 	}
+	html {
+		background-color:#DDDDDD;
+
+	}
 	a {
 		color: inherit;
 		text-decoration: none;
