@@ -1,26 +1,32 @@
-import React, { useState, Dispatch, SetStateAction } from 'react';
+import React, { useState, Dispatch, SetStateAction, useEffect } from 'react';
 import * as S from './Style';
 import { Option, CheckedOption } from 'components/base';
-
-interface OptionType {
-  expireAt: string;
-  count: number;
-  sellingPrice: number;
-}
+import { IConItem } from 'types';
 
 interface OptionBoxProps {
-  options: OptionType[];
+  data: IConItem;
   toggle: () => void;
   isActive: boolean;
   isChecked: boolean;
   setIsChecked: Dispatch<SetStateAction<boolean>>;
 }
 
-const OptionBox = ({ options, toggle, isActive, isChecked, setIsChecked }: OptionBoxProps) => {
+const OptionBox = ({ data, toggle, isActive, isChecked, setIsChecked }: OptionBoxProps) => {
   const [value, setValue] = useState<string>('');
+  const options = data.options;
+  let [notice, refund] = data.warning.split('[환불규정]');
+
+  notice = notice.split('\n').filter((el) => el[0] == ' ');
+  refund = refund.split('\n');
 
   return (
     <S.OptionBoxContainer>
+      <S.Name>유의사항</S.Name>
+      {refund &&
+        React.Children.toArray(notice.map((el) => <S.Contents>{el.replace('-', '')}</S.Contents>))}
+      <S.Name>환불규정</S.Name>
+      {refund &&
+        React.Children.toArray(refund.map((el) => <S.Contents>{el.replace('-', '')}</S.Contents>))}
       <S.OptionBoxBackground isActive={isActive} onClick={toggle} />
       <S.OptionBox isActive={isActive}>
         <S.Title>옵션 선택하기</S.Title>
