@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Dropdown } from 'components/domain';
 import { useClickedId } from 'hooks';
 import { QasListType } from 'pages/contacts';
@@ -7,7 +7,11 @@ interface DropdownListProps {
 }
 
 const DropdownList = ({ list }: DropdownListProps) => {
-  const { clickedId, handleClickedId } = useClickedId();
+  const { clickedId, setClickedId, handleClickedId } = useClickedId();
+
+  useEffect(() => {
+    setClickedId(0);
+  }, [list]);
 
   return (
     <ul>
