@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const NavigationBarWrapper = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.colors.white};
+  position: fixed;
+  top: 50px;
 `;
 
 export const SlideWrapper = styled.ul`
