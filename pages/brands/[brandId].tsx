@@ -5,7 +5,9 @@ import { IBrand, IConItem, INested } from 'types';
 import { MenuBar } from 'components/base';
 import { ProductionList } from 'components/domain';
 import * as S from './Style';
-import { IcoClose } from '../../public/images';
+import { IcoArrow, IcoClose } from '../../public/images';
+import Router from 'next/router';
+import React from 'react';
 
 interface BrandsPageProps {
   data: {
@@ -19,13 +21,9 @@ const BrandsPage = ({ data }: BrandsPageProps) => {
   return (
     <S.BrandsPageWrapper>
       <S.HeaderContainer>
-        <MenuBar
-          img={IcoClose}
-          onClick={() => {
-            history.back();
-          }}
-          children={name}
-        />
+        <MenuBar onClick={() => Router.back()} title={name}>
+          <IcoArrow />
+        </MenuBar>
         <S.ItemCount>
           {conItems.length}
           <span>개의 상품</span>

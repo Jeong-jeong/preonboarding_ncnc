@@ -42,13 +42,7 @@ const Header = () => {
               <S.IcoArrowWrapper>
                 <Link href="/contacts">
                   <a>
-                    <Image
-                      className="ico-arrow"
-                      src={IcoArrow}
-                      width={18}
-                      height={18}
-                      onClick={() => console.log('click')}
-                    />
+                    <IcoArrow />
                   </a>
                 </Link>
               </S.IcoArrowWrapper>
