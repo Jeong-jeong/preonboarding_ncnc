@@ -14,10 +14,15 @@ export const HeaderInner = styled.div`
   height: ${({ theme }) => `${theme.size.baseHeight}px`};
   padding: 7px 19px;
   background-color: ${({ theme }) => theme.colors.white};
+
+  .cursor {
+    cursor: pointer;
+  }
 `;
 
 export const Title = styled.h1`
   ${font15(600)};
+  user-select: none;
 `;
 
 export const SvgWrapper = styled.div`

@@ -23,10 +23,12 @@ export const SubTitle = styled.h3`
   color: ${({ theme }) => theme.colors.red};
   padding: 0 ${({ theme }) => `${theme.gap.baseInner}px`} 4.98px
     ${({ theme }) => `${theme.gap.baseInner}px`};
+  user-select: none;
 `;
 
 export const ItemTitle = styled.h1`
   ${font16(600)};
   padding: 0 ${({ theme }) => `${theme.gap.baseInner}px`} 13.98px
     ${({ theme }) => `${theme.gap.baseInner}px`};
+  user-select: none;
 `;

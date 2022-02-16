@@ -18,13 +18,13 @@ const MenuBar = ({ img, children, onClick, title }: MenuBarProps) => {
         <S.HeaderInner>
           <div></div>
           <S.Title>{children}</S.Title>
-          <div>
+          <div className="cursor">
             <MenuImage img={img} num={16} onClick={onClick} />
           </div>
         </S.HeaderInner>
       ) : img === IcoMenuBar ? (
         <S.HeaderInner>
-          <div>
+          <div className="cursor">
             <MenuImage img={img} num={18} onClick={onClick} />
           </div>
           <S.Title>{children}</S.Title>

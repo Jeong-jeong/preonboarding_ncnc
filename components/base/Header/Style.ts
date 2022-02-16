@@ -19,8 +19,9 @@ export const HeaderInner = styled.div`
   ${flexbox({ jc: 'between' })};
   max-width: 1440px;
   height: 100%;
-  margin: 0 auto;
   padding: 7px 19px;
+  margin: 0 auto;
+  user-select: none;
 `;
 
 export const Title = styled.h1`
@@ -32,7 +33,9 @@ export const Hidden = styled.div`
   visibility: hidden;
 `;
 
-export const HamburgerContainer = styled.div``;
+export const HamburgerContainer = styled.div`
+  cursor: pointer;
+`;
 
 export const MyPageWrapper = styled.div`
   z-index: ${({ theme }) => theme.zIndex.mypage};
