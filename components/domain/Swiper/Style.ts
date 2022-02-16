@@ -22,7 +22,7 @@ export const SwiperListWrapper = styled.div`
 export const SwiperList = styled.ul<SwiperListProps>`
   width: ${({ windowWidth, originListLength, countCopiedTotal }) =>
     `${originListLength * countCopiedTotal * windowWidth}px`};
-  transition-duration: ${({ isTransition }) => (isTransition ? '300ms' : '0ms')};
+  transition-duration: ${({ isTransition }) => (isTransition ? '400ms' : '0ms')};
   display: flex;
   flex-wrap: nowrap;
 

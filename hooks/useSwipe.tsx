@@ -8,6 +8,7 @@ const useSwipe = (fetchData: ISwipe) => {
 
   const COUNT_COPYIED_TOTAL = 3;
   const ORIGIN_LIST_LENGTH = list ? list.length : COUNT_COPYIED_TOTAL;
+  const INTERVAL_TIME = 3000;
 
   const swipeRef = useRef<HTMLUListElement>(null);
   const lastPositionXRef = useRef(0);
@@ -24,35 +25,38 @@ const useSwipe = (fetchData: ISwipe) => {
   }, [list]);
 
   useEffect(() => {
-    // @NOTE: 초기화 작업
+    // @NOTE: 초기화 작업 담당
+
     if (list) {
+      // @NOTE: 원본 배열을 가져와 앞 뒤로 복사함
       setItemList([...list, ...list, ...list]);
     }
 
+    // @NOTE: 초기화 시 애니메이션을 끄고 원본 배열 첫번째 위치로 이동시킴
     if (windowWidth) {
       setIsTransition(false);
       setPosition((initialIndexOforiginSlide - 1) * -windowWidth);
       lastPositionXRef.current = (initialIndexOforiginSlide - 1) * -windowWidth;
     }
+
+    const handleResize = () => {
+      setIsTransition(false);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [windowWidth, list]);
 
   useEffect(() => {
-    //@NOTE: 드래그 될 때마다 transform 위치 변경
+    // @NOTE: 드래그 될 때마다 transform 위치 변경
     if (!swipeRef.current) return;
     if (swipeRef.current && isDragging) {
       setPosition(lastPositionXRef.current - (swipeStartX - swipeEndX));
     }
   }, [swipeRef.current, swipeEndX]);
 
-  const handleTransitionEnd = useCallback(() => {
-    if (currentIndex === 0 || currentIndex === ORIGIN_LIST_LENGTH * 2) {
-      // @NOTE: 현재 인덱스가 복붙한 인덱스일 때 transition을 끔
-      setIsTransition(false);
-    }
-  }, [currentIndex]);
-
   useEffect(() => {
-    //@NOTE: 바꿔치기
+    //@NOTE: 현재 인덱스가 복붙한 배열의 인덱스일 때 바꿔치기 작업
     if (!swipeRef.current) return;
     let intervalId: NodeJS.Timer;
 
@@ -61,6 +65,7 @@ const useSwipe = (fetchData: ISwipe) => {
       setPosition((initialIndexOforiginSlide - 1) * -windowWidth);
       lastPositionXRef.current = (initialIndexOforiginSlide - 1) * -windowWidth;
       setCurrentIndex(ORIGIN_LIST_LENGTH);
+
       setTimeout(() => {
         // @NOTE: 바꾸고 0.1초 후에 다시 애니메이션 넣어줌
         setIsTransition(true);
@@ -71,13 +76,14 @@ const useSwipe = (fetchData: ISwipe) => {
       // @NOTE: 자동슬라이드
       intervalId = setTimeout(() => {
         shiftSlide('right');
-      }, 3000);
+      }, INTERVAL_TIME);
     }
 
     return () => clearTimeout(intervalId);
   }, [currentIndex, isTransition, isDragging]);
 
   useEffect(() => {
+    // @NOTE: 드래그가 끝나면 스와이퍼 이동
     if (!isDragging && draggedX !== 0) {
       if (-draggedX <= -windowWidth / 4) {
         shiftSlide('right');
@@ -89,14 +95,12 @@ const useSwipe = (fetchData: ISwipe) => {
     }
   }, [draggedX]);
 
-  useEffect(() => {
-    const handleResize = () => {
+  const handleTransitionEnd = useCallback(() => {
+    if (currentIndex === 0 || currentIndex === ORIGIN_LIST_LENGTH * 2) {
+      // @NOTE: 현재 인덱스가 복붙한 인덱스일 때 transition을 끔
       setIsTransition(false);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [windowWidth]);
+    }
+  }, [currentIndex]);
 
   const setPosition = (scrolledValue: number) => {
     if (swipeRef.current) {
