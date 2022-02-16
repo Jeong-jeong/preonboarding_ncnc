@@ -16,8 +16,9 @@ const NavigationBar = ({ categories }: NavigationBarProps) => {
 
   const handleClick = (e: React.MouseEvent<HTMLLIElement> | React.TouchEvent<HTMLLIElement>) => {
     // @NOTE: 새로고침 후에도 actived 위치 유지
-    if (e.currentTarget) {
-      setValue(e.currentTarget.closest('ul').scrollLeft);
+    const ul = e.currentTarget?.closest('ul');
+    if (ul !== null) {
+      setValue(ul.scrollLeft);
     }
   };
 
