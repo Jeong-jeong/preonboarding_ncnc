@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import axios from 'axios';
 import { ISwipe } from 'types';
 import { Pagination } from 'components/base';
 import { useSwipe, useWindowWidth } from 'hooks';
+import { theme } from 'styles';
 import * as S from './Style';
 
 const Swiper = () => {
   const windowWidth = useWindowWidth();
-
   const [fetchData, setFetchData] = useState<ISwipe | any>({});
 
   const getSwipeList = async () => {
@@ -21,6 +21,10 @@ const Swiper = () => {
       }
     }
   };
+
+  const calcWindowWidth = useMemo(() => {
+    return windowWidth >= theme.size.maxWidth ? theme.size.maxWidth : windowWidth;
+  }, [windowWidth]);
 
   useEffect(() => {
     getSwipeList();
@@ -39,7 +43,7 @@ const Swiper = () => {
     touchMove,
     dragEnd,
     handleTransitionEnd,
-  } = useSwipe({ ...fetchData, windowWidth });
+  } = useSwipe({ ...fetchData, windowWidth: calcWindowWidth });
 
   return (
     <S.WithPagination>
@@ -47,7 +51,7 @@ const Swiper = () => {
         <S.SwiperList
           ref={swipeRef}
           isTransition={isTransition}
-          windowWidth={windowWidth}
+          windowWidth={calcWindowWidth}
           originListLength={ORIGIN_LIST_LENGTH}
           countCopiedTotal={COUNT_COPYIED_TOTAL}
           onTransitionEnd={handleTransitionEnd}
@@ -65,7 +69,7 @@ const Swiper = () => {
                 <Image
                   className="swiper-image"
                   src={src}
-                  width={windowWidth}
+                  width={calcWindowWidth}
                   height={141}
                   priority
                 />
