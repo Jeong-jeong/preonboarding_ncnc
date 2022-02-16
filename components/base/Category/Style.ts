@@ -9,13 +9,12 @@ export interface SizeProps {
 export const Category = styled.a`
   float: left;
   width: calc(100% / 3);
-  min-width: 112px;
+  height: 112px;
   padding: 1px;
 `;
 
 export const CategoryInner = styled.div<SizeProps>`
-  padding: ${({ size, theme }) =>
-    size === 43 ? '11px 0 14px' : `${theme.gap.baseInner}px 0 13px`};
+  height: 100%;
   background: ${({ theme }) => `${theme.colors.white}`};
   border-radius: ${({ theme }) => `${theme.size.borderRadius}px`};
   cursor: pointer;
@@ -23,7 +22,8 @@ export const CategoryInner = styled.div<SizeProps>`
 
 export const ContentsWrapper = styled.div`
   height: 100%;
-  ${flexbox({ fd: 'column', jc: 'between' })};
+  ${flexbox({ fd: 'column' })};
+  justify-content: space-evenly;
   transition: 0.6s ease;
 
   &:hover {
