@@ -13,6 +13,7 @@ export const Item = styled.button`
   text-align: start;
 
   & > p {
+    color: ${({ theme }) => theme.colors.primary};
     margin: 0;
     ${flexbox({ jc: 'start', ai: 'start' })};
   }

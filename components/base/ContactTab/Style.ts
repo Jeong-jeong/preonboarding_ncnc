@@ -27,6 +27,6 @@ export const ButtonWrapper = styled.div`
 export const Button = styled.button<{ isActive: boolean }>`
   width: 100%;
   height: 40px;
-  color: ${({ isActive, theme }) => isActive && theme.colors.red};
+  color: ${({ isActive, theme }) => (isActive ? theme.colors.red : theme.colors.primary)};
   border-bottom: ${({ isActive, theme }) => isActive && `2px solid ${theme.colors.red}`};
 `;

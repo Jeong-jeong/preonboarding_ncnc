@@ -1,7 +1,7 @@
 import * as S from './Style';
 import NavigationItem from '../NavigationItem/NavigationItem';
 import { useRouter } from 'next/router';
-import React, { useEffect, useRef, MutableRefObject } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ICategory } from 'types';
 import { useLocalStorage } from 'hooks';
 
