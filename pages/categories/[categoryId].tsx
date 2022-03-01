@@ -1,27 +1,43 @@
-import React from 'react';
-import { GetServerSideProps } from 'next';
-import { ParsedUrlQuery } from 'querystring';
+import React, { useEffect, useState } from 'react';
 import { ICategory, IConItem, INested } from 'types';
-import { getCategories, getNested } from 'api';
-import { IcoArrow, IcoClose } from 'public/images';
-import { MenuBar, NavigationBar } from 'components/base';
+import { ParsedUrlQuery } from 'querystring';
+import { MenuBar, NavigationBar, Loading } from 'components/base';
 import { ProductionList, CategoryList } from 'components/domain';
+import { getCategories, getNested } from 'api';
+import { IcoArrow } from 'public/images';
 
 import * as S from 'pagesStyle/categoriesStyle';
+import { GetServerSideProps } from 'next';
 import Router from 'next/router';
 
-interface CategoryPageProps {
-  data: {
-    nested: INested;
-    categories: ICategory[];
-  };
+interface Params extends ParsedUrlQuery {
+  categoryId: string;
 }
 
-const CategoryPage = ({ data }: CategoryPageProps) => {
-  const { nested, categories } = data;
-  const { conCategory2s, name } = nested;
+const CategoryPage = ({ categoryId }: Params) => {
+  const [nestedData, setNestedData] = useState<INested>();
+  const [categories, setCategories] = useState<ICategory[]>();
+  const [isLoading, setLoading] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const categories = await getCategories();
+        setCategories(categories);
+        const nested = await getNested(+categoryId);
+        setNestedData(nested);
+      } catch (e) {
+        throw new Error();
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, [categoryId]);
+
   const conItems: IConItem[] = [];
-  if (nested.id === 1) {
+  if (nestedData && nestedData.id === 1) {
+    const { conCategory2s } = nestedData;
     conCategory2s.forEach((category) => {
       category.conItems.forEach((conItem) => conItems.push(conItem));
     });
@@ -30,34 +46,36 @@ const CategoryPage = ({ data }: CategoryPageProps) => {
   return (
     <S.CategoryPageWrapper>
       <S.HeaderContainer>
-        <MenuBar onClick={() => Router.push('/')} title={name}>
+        <MenuBar onClick={() => Router.push('/')} title={nestedData?.name}>
           <IcoArrow />
         </MenuBar>
-        <NavigationBar categories={categories} />
+        <NavigationBar categories={categories} categoryId={categoryId} />
       </S.HeaderContainer>
-      <S.ArticleContainer>
-        {nested.id === 1 ? (
-          <>
-            <ProductionList conItems={conItems} />
-          </>
-        ) : (
-          <CategoryList categories={conCategory2s} size={36} />
-        )}
-      </S.ArticleContainer>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <S.ArticleContainer>
+          {nestedData?.id === 1 ? (
+            <>
+              <ProductionList conItems={conItems} />
+            </>
+          ) : (
+            <CategoryList categories={nestedData?.conCategory2s} size={36} />
+          )}
+        </S.ArticleContainer>
+      )}
     </S.CategoryPageWrapper>
   );
 };
 
-interface Params extends ParsedUrlQuery {
-  categoryId: string;
-}
-
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  // @NOTE: router만 ssr로 전달
   const { categoryId } = context.params as Params;
-  const nested = await getNested(+categoryId);
-  const categories = (await getCategories())!;
-
-  return { props: { data: { nested, categories } } };
+  return {
+    props: {
+      categoryId,
+    },
+  };
 };
 
 export default CategoryPage;

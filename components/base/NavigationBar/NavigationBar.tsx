@@ -1,16 +1,14 @@
-import * as S from './Style';
-import NavigationItem from '../NavigationItem/NavigationItem';
-import { useRouter } from 'next/router';
 import React, { useEffect, useRef } from 'react';
 import { ICategory } from 'types';
+import { NavigationItem } from 'components/base';
 import { useLocalStorage } from 'hooks';
+import * as S from './Style';
 
 interface NavigationBarProps {
-  categories: ICategory[];
+  categories: ICategory[] | undefined;
+  categoryId: string;
 }
-const NavigationBar = ({ categories }: NavigationBarProps) => {
-  const { query } = useRouter();
-
+const NavigationBar = ({ categories, categoryId }: NavigationBarProps) => {
   const scrolledRef = useRef<HTMLUListElement>(null);
   const [storedValue, setValue] = useLocalStorage('navigationAcitvedX', 0);
 
@@ -32,11 +30,11 @@ const NavigationBar = ({ categories }: NavigationBarProps) => {
     <S.NavigationBarWrapper>
       <S.SlideWrapper ref={scrolledRef}>
         {React.Children.toArray(
-          categories.map(({ name, id }) => (
+          categories?.map(({ name, id }) => (
             <NavigationItem
               name={name}
               id={id}
-              active={id === +query.categoryId!}
+              active={id === +categoryId ?? false}
               onClick={handleClick}
             />
           )),

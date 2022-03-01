@@ -4,7 +4,7 @@ import { Category } from 'components/base';
 import { ICategory } from 'types';
 
 interface CategoryListProps {
-  categories: ICategory[];
+  categories: ICategory[] | undefined;
   size: 43 | 36;
 }
 
