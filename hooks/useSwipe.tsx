@@ -26,6 +26,7 @@ const useSwipe = (fetchData: ISwipe) => {
 
   useEffect(() => {
     // @NOTE: 초기화 작업 담당
+    setIsTransition(false);
 
     if (list) {
       // @NOTE: 원본 배열을 가져와 앞 뒤로 복사함
