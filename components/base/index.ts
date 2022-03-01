@@ -13,3 +13,4 @@ export { default as CheckedOption } from './CheckedOption/CheckedOption';
 export { default as ContactTab } from './ContactTab/ContactTab';
 export { default as Pagination } from './Pagination/Pagination';
 export { default as Dropdown } from './Dropdown/Dropdown';
+export { default as Loading } from './Loading/Loading';
