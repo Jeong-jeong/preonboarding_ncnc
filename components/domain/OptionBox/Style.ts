@@ -56,7 +56,7 @@ export const OptionBoxBackground = styled.div<isActiveType>`
 
 export const OptionBox = styled.div<isActiveType>`
   width: 100%;
-  height: 241px;
+  height: 300px;
   background: ${theme.colors.background};
   position: absolute;
   left: 0;

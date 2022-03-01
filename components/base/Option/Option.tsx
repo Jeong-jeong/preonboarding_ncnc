@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction } from 'react';
-import * as S from './Style';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Options } from 'types/ConItem';
 import { getDiscount } from 'utils/fucntions';
+import * as S from './Style';
 
 interface OptionProps {
   option: Options;
@@ -12,17 +12,12 @@ interface OptionProps {
 }
 
 const Option = ({ option, originalPrice, setValue, toggle, setIsChecked }: OptionProps) => {
-  let date = '';
-  let expireAt = '';
+  const [date, setDate] = useState('');
 
-  if (option.expireAt.indexOf('Z') > 0) {
-    expireAt = option.expireAt.split('T', 1).join();
-    date = `${expireAt.replace('-', '.').replace('-', '.')} 까지`;
-  } else {
-    const expireAt = option.expireAt.substring(4, 15).split(' ');
-    const month = Month[expireAt[0] as keyof typeof Month];
-    date = `${expireAt[2]}.${month}.${expireAt[1]} 까지`;
-  }
+  useEffect(() => {
+    const expireAt = option.expireAt.split('T', 1).join();
+    setDate(`${expireAt.replace('-', '.').replace('-', '.')}`);
+  }, [option]);
 
   const price = option.sellingPrice.toLocaleString() + '원';
   const value = `${date}/ ${price}`;
@@ -38,7 +33,7 @@ const Option = ({ option, originalPrice, setValue, toggle, setIsChecked }: Optio
       <div>
         <div>
           <S.TextGray>유효기간</S.TextGray>
-          <S.TextBlack>{date}</S.TextBlack>
+          <S.TextBlack>{date} 까지</S.TextBlack>
         </div>
         <div>
           <S.TextGray>할인가</S.TextGray>
@@ -48,21 +43,6 @@ const Option = ({ option, originalPrice, setValue, toggle, setIsChecked }: Optio
       <S.Discount>{discount}%</S.Discount>
     </S.Option>
   );
-};
-
-const Month = {
-  Jan: 1,
-  Feb: 2,
-  Mar: 3,
-  Apr: 4,
-  May: 5,
-  Jun: 6,
-  Jul: 7,
-  Aug: 8,
-  Sep: 9,
-  Oct: 10,
-  Nov: 11,
-  Dec: 12,
 };
 
 export default Option;

@@ -11,7 +11,6 @@ export const ItemsPageWrapper = styled.div`
 `;
 
 export const ProductWrapper = styled.div`
-  height: 100%;
   border-top: 1px solid ${({ theme }) => theme.colors.background};
   overflow-y: auto;
   ${hideScrollbar};

@@ -11,7 +11,7 @@ const ProductionList = ({ conItems }: ProductionListProps) => {
   return (
     <S.ProductionListWrapper>
       {React.Children.toArray(
-        conItems.map(({ name, id, originalPrice, minSellingPrice, imageUrl, conCategory2 }) => (
+        conItems?.map(({ name, id, originalPrice, minSellingPrice, imageUrl, conCategory2 }) => (
           <ProductionItem
             productionId={id}
             productionName={name}
