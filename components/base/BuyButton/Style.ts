@@ -16,4 +16,8 @@ export const Button = styled.button<IBtn>`
   position: absolute;
   left: 0;
   bottom: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
