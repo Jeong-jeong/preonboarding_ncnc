@@ -7,10 +7,10 @@ export default interface ConItem {
   minSellingPrice: number;
   ncSellingPrice: number;
   information: string;
-  tip: any;
+  tip: null;
   warning: string;
   discountRate: number;
-  info: any;
+  info: string;
   isOnlyAccount: number;
   conCategory2Id: number;
   imageUrl: string;

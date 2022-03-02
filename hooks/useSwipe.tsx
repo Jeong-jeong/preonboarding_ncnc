@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef, useMemo } from 'react';
 import { ISwipe } from 'types';
 
-const useSwipe = (fetchData: ISwipe) => {
+const useSwipe = (fetchData: Partial<ISwipe>) => {
   type List = ISwipe['list'];
 
   const { list, windowWidth } = fetchData;
@@ -61,7 +61,7 @@ const useSwipe = (fetchData: ISwipe) => {
     if (!swipeRef.current) return;
     let intervalId: NodeJS.Timer;
 
-    if (!isTransition) {
+    if (!isTransition && windowWidth) {
       // @NOTE: Transition이 꺼지면 처음으로 옮김
       setPosition((initialIndexOforiginSlide - 1) * -windowWidth);
       lastPositionXRef.current = (initialIndexOforiginSlide - 1) * -windowWidth;
@@ -85,7 +85,7 @@ const useSwipe = (fetchData: ISwipe) => {
 
   useEffect(() => {
     // @NOTE: 드래그가 끝나면 스와이퍼 이동
-    if (!isDragging && draggedX !== 0) {
+    if (!isDragging && draggedX !== 0 && windowWidth) {
       if (-draggedX <= -windowWidth / 4) {
         shiftSlide('right');
       } else if (-draggedX >= windowWidth / 4) {
@@ -111,20 +111,22 @@ const useSwipe = (fetchData: ISwipe) => {
   };
 
   const shiftSlide = (direction: string) => {
-    switch (direction) {
-      case 'right': {
-        setPosition(lastPositionXRef.current - windowWidth);
-        lastPositionXRef.current -= windowWidth;
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-        break;
+    if (windowWidth) {
+      switch (direction) {
+        case 'right': {
+          setPosition(lastPositionXRef.current - windowWidth);
+          lastPositionXRef.current -= windowWidth;
+          setCurrentIndex((prevIndex) => prevIndex + 1);
+          break;
+        }
+        case 'left':
+          setPosition(lastPositionXRef.current + windowWidth);
+          lastPositionXRef.current += windowWidth;
+          setCurrentIndex((prevIndex) => prevIndex - 1);
+          break;
+        default:
+          setPosition(lastPositionXRef.current);
       }
-      case 'left':
-        setPosition(lastPositionXRef.current + windowWidth);
-        lastPositionXRef.current += windowWidth;
-        setCurrentIndex((prevIndex) => prevIndex - 1);
-        break;
-      default:
-        setPosition(lastPositionXRef.current);
     }
   };
 

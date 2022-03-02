@@ -9,14 +9,14 @@ export default interface SoonItem {
   minSellingPrice: number;
   ncSellingPrice: number;
   count: number;
-  information: any;
-  tip: any;
+  information: string;
+  tip: string;
   warning: string;
   discountRate: number;
   askingPrice: number;
   isRefuse: number;
   isBlock: number;
-  info: any;
+  info: string;
   isOnlyAccount: number;
   conCategory2Id: number;
   imageUrl: string;

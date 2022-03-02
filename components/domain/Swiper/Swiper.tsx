@@ -9,7 +9,7 @@ import * as S from './Style';
 
 const Swiper = () => {
   const windowWidth = useWindowWidth();
-  const [fetchData, setFetchData] = useState<ISwipe | any>({});
+  const [fetchData, setFetchData] = useState<Partial<ISwipe>>({});
 
   const getSwipeList = async () => {
     try {

@@ -8,6 +8,6 @@ export default interface Brand {
   adminUserId: number;
   priority: number;
   createdAt: string;
-  info: any;
+  info: string;
   conCategory1: Category;
 }

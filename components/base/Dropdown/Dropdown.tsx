@@ -7,7 +7,7 @@ interface DropdownProps {
   clickedId: number;
   question: string;
   answer: string;
-  handleClickedId: any;
+  handleClickedId: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Dropdown = ({ id, clickedId, question, answer, handleClickedId }: DropdownProps) => {
