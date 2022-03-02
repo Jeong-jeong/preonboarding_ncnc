@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import * as S from './Style';
+import Script from 'next/script';
 
 interface PaginationProps {
   list: string[];
@@ -18,7 +19,8 @@ const Pagination = ({
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
-          rel="stylesheet"
+          rel="stylesheet preload"
+          as="style"
         />
       </Head>
       {React.Children.toArray(

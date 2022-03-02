@@ -8,7 +8,7 @@ export const ProductionInfoWrapper = styled.div`
   }
 `;
 
-export const BrandName = styled.h3`
+export const BrandName = styled.h2`
   ${font14(400)};
   margin-bottom: 7px;
   color: ${({ theme }) => theme.colors.gray};

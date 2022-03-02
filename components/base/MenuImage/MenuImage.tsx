@@ -10,7 +10,7 @@ export interface MenuBarProps {
 const MenuImage = ({ img, num, onClick }: MenuBarProps) => {
   return (
     <div>
-      <Image src={img} width={num} height={num} onClick={onClick} />
+      <Image src={img} alt="메뉴보기" width={num} height={num} onClick={onClick} />
     </div>
   );
 };

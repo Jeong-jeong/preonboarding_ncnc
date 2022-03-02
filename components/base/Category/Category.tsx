@@ -1,5 +1,6 @@
 import * as S from './Style';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ICategory } from 'types';
 
 interface CategoryProps {
@@ -15,9 +16,7 @@ const Category = ({ category, size }: CategoryProps) => {
       <S.Category>
         <S.CategoryInner size={size}>
           <S.ContentsWrapper>
-            <S.ImgWrap size={size}>
-              <img src={imageUrl} alt={`${name} 이미지`} />
-            </S.ImgWrap>
+            <Image src={imageUrl} width={size} height={size} alt={`${name} 이미지`} />
             <S.Name size={size}>{name}</S.Name>
           </S.ContentsWrapper>
         </S.CategoryInner>

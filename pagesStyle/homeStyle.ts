@@ -18,7 +18,7 @@ export const ProductionListWrapper = styled.ul`
   }
 `;
 
-export const SubTitle = styled.h3`
+export const SubTitle = styled.strong`
   ${font13(500)};
   color: ${({ theme }) => theme.colors.red};
   padding: 0 ${({ theme }) => `${theme.gap.baseInner}px`} 4.98px

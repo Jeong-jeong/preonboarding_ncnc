@@ -39,7 +39,13 @@ const Header = ({ setImageState }: HeaderProps) => {
     <S.HeaderWrapper>
       <S.HeaderInner>
         <S.HamburgerContainer className={'toggle-button'}>
-          <Image src={IcoMenuBar} width={30} height={30} onClick={handleToggleMenu} />
+          <Image
+            src={IcoMenuBar}
+            alt="메뉴보기"
+            width={30}
+            height={30}
+            onClick={handleToggleMenu}
+          />
         </S.HamburgerContainer>
         <S.Title>니콘내콘</S.Title>
         <S.Hidden />
@@ -58,7 +64,6 @@ const Header = ({ setImageState }: HeaderProps) => {
                     <S.ContentText>고객센터</S.ContentText>
                     <S.IcoArrowWrapper>
                       <IcoArrow className="ico-arrow" />
-                      {/* <Image className="ico-arrow" src={IcoArrow} width={16} height={16} /> */}
                     </S.IcoArrowWrapper>
                   </S.ContentWrapper>
                 </a>

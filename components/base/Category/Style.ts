@@ -31,17 +31,6 @@ export const ContentsWrapper = styled.div`
   }
 `;
 
-export const ImgWrap = styled.div<SizeProps>`
-  width: ${({ size }) => `${size}px`};
-  height: ${({ size }) => `${size}px`};
-
-  > img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-`;
-
 export const Name = styled.h1<SizeProps>`
   ${font12(500)};
   text-align: center;

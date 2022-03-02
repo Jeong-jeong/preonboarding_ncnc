@@ -7,9 +7,10 @@ const globalStyle = createGlobalStyle`
 		font-family: 'Apple SD Gothic Neo';
 		font-style: normal;
 		font-weight: 400;
+		font-display: swap;
 		src: local('AppleSDGothicNeoM'),
 			url('../fonts/AppleSDGothicNeo/AppleSDGothicNeoM.woff') format('woff'),
-    	url('../fonts/AppleSDGothicNeo/AppleSDGothicNeoM.woff2') format('woff2'),
+			url('../fonts/AppleSDGothicNeo/AppleSDGothicNeoM.woff2') format('woff2'),
 			url('../fonts/AppleSDGothicNeo/AppleSDGothicNeoM.ttf') format('truetype'),
 			url('../fonts/AppleSDGothicNeo/AppleSDGothicNeoM.eot') format('embedded-opentype');
 		unicode-range: U+AC00- U+D7A3, U+0030-0039;

@@ -9,7 +9,8 @@ export const Pagination = styled.ul`
   ${fontRoboto()};
 `;
 
-export const PaginationItem = styled.span<{ isSameIndex: boolean }>`
+export const PaginationItem = styled.li<{ isSameIndex: boolean }>`
+  display: inline-block;
   color: ${({ isSameIndex, theme }) => (isSameIndex ? theme.colors.primary : theme.colors.white)};
   transition: color 500ms ease;
 `;

@@ -69,6 +69,7 @@ const Swiper = () => {
                 <Image
                   className="swiper-image"
                   src={src}
+                  alt="스와이퍼 이미지"
                   width={calcWindowWidth}
                   height={141}
                   priority
